@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>opossum_jump_0.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{36,28}</string>
+                <key>spriteSourceSize</key>
+                <string>{36,28}</string>
+                <key>textureRect</key>
+                <string>{{0,0},{36,28}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>opossum_jump_.png</string>
+            <key>size</key>
+            <string>{36,28}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:54661a0a14c8102dd4663f564d05fa1f:1f0aa2feaf19e7a7bd8a49c0c0f7a1bf:c4cdeac91c5f54df968032a0c77c6712$</string>
+            <key>textureFileName</key>
+            <string>opossum_jump_.png</string>
+        </dict>
+    </dict>
+</plist>

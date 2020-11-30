@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>pickaxe_jump2_n.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>anchor</key>
+                <string>{0.5,0.5}</string>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{36,32}</string>
+                <key>spriteSourceSize</key>
+                <string>{36,32}</string>
+                <key>textureRect</key>
+                <string>{{0,0},{36,32}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>fox_pickaxe_jump2_n.png</string>
+            <key>size</key>
+            <string>{36,32}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:c3b9fa99c1dfa0329aaaa91cadc26402:ec49b95e5de5c813b72aec115188a36b:07828d04b985600cd047f727b648e128$</string>
+            <key>textureFileName</key>
+            <string>fox_pickaxe_jump2_n.png</string>
+        </dict>
+    </dict>
+</plist>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>fox_pain_0_n.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{33,32}</string>
+                <key>spriteSourceSize</key>
+                <string>{33,32}</string>
+                <key>textureRect</key>
+                <string>{{0,0},{33,32}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>fox_pain_n.png</string>
+            <key>size</key>
+            <string>{33,32}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:f55c15d8681d0c674e457ca04f09b676:09ad2ac731f9ceafe4f6e28793daf37f:f14773adcb8fad670daf6d4998de973c$</string>
+            <key>textureFileName</key>
+            <string>fox_pain_n.png</string>
+        </dict>
+    </dict>
+</plist>

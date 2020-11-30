@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="2092">
+ <tileset firstgid="1" source="BaseMap.tsx"/>
+ <tileset firstgid="65" source="Items.tsx"/>
+ <layer id="15" name="Ground" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztzzERADEMxMCDEgIuMiH00B5KoMU4ZBU7qlVJdrImqOTv5gzRr9dfLn/Z/GXzl81fNn/Z/GXzl81fNn/Z/GXzl81fNn/ZJv5W8u0h+vU+vk+yWA==
+  </data>
+ </layer>
+ <layer id="21" name="Item" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20PBxQAAAAAAAAADwYeAAAB
+  </data>
+ </layer>
+ <objectgroup id="16" name="Collision"/>
+ <objectgroup id="20" name="SpawnPoint"/>
+ <objectgroup id="22" name="M_SpawnPoint"/>
+</map>

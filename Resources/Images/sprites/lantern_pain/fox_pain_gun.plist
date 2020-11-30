@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>fox_pain_gun.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{33,32}</string>
+                <key>spriteSourceSize</key>
+                <string>{33,32}</string>
+                <key>textureRect</key>
+                <string>{{0,0},{33,32}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>fox_pain_gun.png</string>
+            <key>size</key>
+            <string>{33,32}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:614260913870ece8c79063c86e480384:16bd4f70f31bbcee3e037a30c707f0dc:07ee51518860a90a096d6a36440fe275$</string>
+            <key>textureFileName</key>
+            <string>fox_pain_gun.png</string>
+        </dict>
+    </dict>
+</plist>

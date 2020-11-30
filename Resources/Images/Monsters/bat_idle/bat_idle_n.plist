@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>bat_idle_n.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{16,16}</string>
+                <key>spriteSourceSize</key>
+                <string>{16,16}</string>
+                <key>textureRect</key>
+                <string>{{0,0},{16,16}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>bat_idle_n.png</string>
+            <key>size</key>
+            <string>{16,16}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:5fbe406a0354e6f728a7d4b27f4acf4f:5aa96f98bea1e832592b8c78932aa6ff:773850841c7c036460f9377807349808$</string>
+            <key>textureFileName</key>
+            <string>bat_idle_n.png</string>
+        </dict>
+    </dict>
+</plist>

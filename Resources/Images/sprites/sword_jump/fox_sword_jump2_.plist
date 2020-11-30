@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>sword_jump2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{29,28}</string>
+                <key>spriteSourceSize</key>
+                <string>{33,32}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{29,28}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>fox_sword_jump2_.png</string>
+            <key>size</key>
+            <string>{31,30}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:3643ffe6c5bd0bfd60d3b0e7d2295888:9888584960d79ee4ae241a65229d5446:c5a2f7684c7edd15b1068a26d4f144bb$</string>
+            <key>textureFileName</key>
+            <string>fox_sword_jump2_.png</string>
+        </dict>
+    </dict>
+</plist>

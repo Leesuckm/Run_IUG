@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>frog_jump_1_n.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{35,32}</string>
+                <key>spriteSourceSize</key>
+                <string>{35,32}</string>
+                <key>textureRect</key>
+                <string>{{0,0},{35,32}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>frog_jump1_n.png</string>
+            <key>size</key>
+            <string>{35,32}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:265a1477cdb3b62c5eef2e5cc8ebf10f:72beb03d9eec3693185db02423c28014:9c6fb35ce68e507f5fc2598a591a0715$</string>
+            <key>textureFileName</key>
+            <string>frog_jump1_n.png</string>
+        </dict>
+    </dict>
+</plist>
