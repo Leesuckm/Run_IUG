@@ -25,7 +25,7 @@ Jump : Keyboard // only for Test.ver
 Attack : Button 
 Interaction: Button
 
-Vidio : https://www.youtube.com/watch?v=Ksijo9a1CYw
+Vidio : https://youtu.be/HMjZ5ArIqCs
 
 almost pixel sprite & sound is selfmade or selffixed free pixel sprite, sound T - T
 
