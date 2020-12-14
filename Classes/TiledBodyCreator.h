@@ -79,6 +79,8 @@ private :
 	LightEffect* m_LightEffect;
 	EffectSprite* m_EffectSprite;
 
+	std::list<Sprite*> lb_Lavalist;
+
 public:
 
 	~TiledBodyCreator();
@@ -140,15 +142,18 @@ public:
 	void UserDataChange(Layer* layer, b2World* world);
 	void setEffectSprite(b2Body* body, std::string& sPath, std::string& sPath_n, std::string layertype);
 	void SpriteTrade(Layer* layer, b2Body* body, EffectSprite* _EffectSprite, std::string layertype);
+	void setEffectAnimationSprite(b2Body* body, std::string& sPath, int nSheet_mx, Layer* _layer);
 	void setEffectAnimationSprite(b2Body* body, std::string& sPath, std::string& sPath_n, int nSheet_mx,std::string layertype);
 
+	Sprite* CreateAnimation(const std::string& _sPath, const char* _cNames, int _nSize, float _fFrameTime, Sprite* _sprite, Layer* _layer);
+
+	std::list<Sprite*> getLavalist() {return lb_Lavalist; };
+	bool LavaCollision(b2Body* _charactor_body, float _movetime, float* _delaytime, Layer* _layer);
 
 	static FixtureDef* createFixture(ValueMap object);
 	static FixtureDef* createPolygon(ValueMap object);
 	static FixtureDef* createPolyline(ValueMap object);
 	static FixtureDef* createCircle(ValueMap object);
 	static FixtureDef* createRect(ValueMap object);
-	
 };
-
 #endif // __TILED_BODY_CREATOR_H__

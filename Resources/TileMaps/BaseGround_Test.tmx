@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="2086">
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="25" nextobjectid="2086">
  <tileset firstgid="1" source="BaseMap.tsx"/>
- <tileset firstgid="65" source="Items.tsx"/>
+ <tileset firstgid="77" source="Items.tsx"/>
  <layer id="15" name="Ground" width="60" height="32">
   <data encoding="base64" compression="zlib">
    eJzt2UELgCAMhmEvHbxI///Xxg5CiGnDuY3PPSB0Sl+SEsoppXzYKIeM2tsjPdfXHFyj+82MejVw173SSqR67x+jh7P21VbC6ZXe09z1r7YSy/2s/WyJ997Z+47Lc69kZ+W9V5p17+i7jNZLZr2a5ysNpbkuzTX3vDbjsXfXXibWvdXOxjcvvVqiF1v0YotebNGLLXqxRS+26MVm3Xspz2f9X9JiPNxoD/A=
+  </data>
+ </layer>
+ <layer id="24" name="Ground_64" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20PBxQAAAAAAAAADwYeAAAB
   </data>
  </layer>
  <layer id="23" name="Treasure_chest" width="60" height="32">
@@ -14,7 +19,7 @@
  </layer>
  <layer id="21" name="Item" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJztzrENwCAQBMFvDQO2+6+I64GAgBlp860CAAAAAAAAbtLSk3oaaaY3fek/+MW+Bfp9AiU=
+   eJztzrENwCAQBMFvEAO2+6+F64GAgBlp860CAAAAAAAAbtLSk3oaaaY3fek/+MW+BafMAoU=
   </data>
  </layer>
  <objectgroup id="16" name="Collision" visible="0">

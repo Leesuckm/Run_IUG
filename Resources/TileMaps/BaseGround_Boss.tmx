@@ -10,7 +10,7 @@
  </layer>
  <layer id="24" name="Ground" width="40" height="24">
   <data encoding="base64" compression="zlib">
-   eJztlksKwCAMRHs1Kb3/lbrpQksjk18zLT7IStTHDIht46Vdw8ry89H77cBY8Jz1pfy0+yKR8kX8ovvW8Nd+o5F6kfyyO0UzqcqPzc/6tqLvcxXe/A5gKv08IH3P/Bj6rshPc9/bfto+7n4MnfZY8svK++ncmZ+0lvUfi7prMXICLaIl2w==
+   eJztlksKwCAMRHM1Kd7/St1aaWTya2LxQVaiPmZAbETUik9Vjp+N0e8CRoPlrJ3yk+7zhMsX8fPuW8Jf+/WG64Xzi+4UzSQrv2p+2rcVfZ+zsObXgcn0s4D0vfKr0HdGfpL7vvaT9jH7Veh0RJNfVN5v5678uLWo/5jXXYcnN/9RL4E=
   </data>
  </layer>
  <layer id="25" name="Item" width="40" height="24">

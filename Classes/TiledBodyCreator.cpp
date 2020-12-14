@@ -28,15 +28,15 @@ void TiledBodyCreator::initCollisionMap(TMXTiledMap* map, b2World* world, _Stage
 	//auto collisionGroup = map->getObjectGroup("Collision");
 	collisionGround = map->getLayer("Ground");
 	collisionItem = map->getLayer("Item");
-
+	collisionGround64 = map->getLayer("Ground_64");
 	m_stageNumber = _stage;
 	m_Blind = _blind;
 
 	if (m_stageNumber != BOSS) {
 		m_MapSize = Size(60, 32);
 	}
+
 	else if (m_stageNumber == BOSS) {
-		collisionGround64 = map->getLayer("Ground_64");
 		m_MapSize = Size(40, 24);
 	}
 
@@ -69,11 +69,11 @@ void TiledBodyCreator::initCollisionMap(TMXTiledMap* map, b2World* world, _Stage
 					bd[i][j].userData = collisionTreasureChest->getTileAt(Vec2(j, k));
 				}
 			}
-			if (_stage == BOSS) {
+			//if (_stage == BOSS) {
 				if (collisionGround64->getTileAt(Vec2(j, k)) != nullptr) {
 					bd[i][j].userData = collisionGround64->getTileAt(Vec2(j, k));
 				}
-			}
+		//	}
 			if (bd[i][j].userData != nullptr) {
 				bd[i][j].position = b2Vec2(j, i);
 			}
@@ -149,7 +149,10 @@ void TiledBodyCreator::initCollisionMap(TMXTiledMap* map, b2World* world, _Stage
 			case 9: // 테두리 하드 블럭
 			case 40:
 			case 65:
-				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, 0x0022, 0xFFFF, 0, 3000, b2_staticBody, nullptr);
+				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, HARDBLOCK_CATEGORY, 0xFFFF, 0, 3000, b2_staticBody, nullptr);
+				break;
+			case 66:
+				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, LHARDBLOCK_CATEGORY, 0xFFFF, 0, 3000, b2_staticBody, nullptr);
 				break;
 			case 12:
 				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, LGUNTRAP_CATEGORY, 0xFFFF, 0, 3000, b2_staticBody, nullptr);
@@ -160,8 +163,16 @@ void TiledBodyCreator::initCollisionMap(TMXTiledMap* map, b2World* world, _Stage
 			case 14: // 기본 블럭
 			case 55:
 			case 67:
+				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, BLOCK_CATEGORY, 0xFAFF, 0, 27, b2_staticBody, nullptr); // maskbits 일단 boss lightningball categorybits(0x0500) 때문에 FAFF로 해놓음
+				break;
+			case 68:
+				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, LBLOCK_CATEGORY, 0xFAFF, 0, 27, b2_staticBody, nullptr);
+				break;
 			case 69:
-				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, 0x0002, 0xFFFF, 0, 27, b2_staticBody, nullptr);
+				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, BRIDGE_CATEGORY, 0xFAFF, 0, 27, b2_staticBody, nullptr);
+				break;
+			case 70:
+				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, LBRIDGE_CATEGORY, 0xFAFF, 0, 27, b2_staticBody, nullptr);
 				break;
 			case 15:
 				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, BLADEBLOCK_CATEGORY, 0xFFFF, 0, 3, b2_staticBody, nullptr);
@@ -169,6 +180,12 @@ void TiledBodyCreator::initCollisionMap(TMXTiledMap* map, b2World* world, _Stage
 			case 16: // 골드 블럭
 			case 56:
 				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, 0x0007, 0xFFFF, 0, 3, b2_staticBody, nullptr);
+				break;
+			case 71:
+				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, LAVA_CATEGORY, 0x0000, 0, 3000, b2_staticBody, nullptr);
+				break;
+			case 72:
+				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, LAVAINSIDE_CATEGORY, 0x0000, 0, 3000, b2_staticBody, nullptr);
 				break;
 			}
 
@@ -178,31 +195,35 @@ void TiledBodyCreator::initCollisionMap(TMXTiledMap* map, b2World* world, _Stage
 				log("gid = %f", m_nTileGid);
 			}		
 			switch (m_nTileGid) {
+			case 65:
 			case 77:    // 폭탄
 				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, 0x3000, 0x000E, 9, 1000, b2_dynamicBody, &lb_Bomblist);
 				break;
-
+			case 66:
 			case 78: // 사다리			
 				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, 0x7000, 0x000E, 13, 1000, b2_dynamicBody, &lb_Ladderlist);
 				break;
-
+			case 67:
 			case 79:	// 곡괭이			
 				initBlockShape(vertices, Size(0.2f, 0.3f), rectshape, vindex, 0x2000, 0x000E, 7, 1000, b2_dynamicBody, &lb_Pickaxelist);
 				break;
-
+			case 68:
 			case 80:  // 검				
 				initBlockShape(vertices, Size(0.2f, 0.3f), rectshape, vindex, 0x4000, 0x000E, 11, 1000, b2_dynamicBody, &lb_Swordlist);
-
 				break;
+			case 69:
 			case 81:  // 권총
 				initBlockShape(vertices, Size(0.2f, 0.3f), rectshape, vindex, 0x5000, 0x000E, 12, 1000, b2_dynamicBody, &lb_Gunlist);
 				break;
+			case 70:
 			case 82:  // Red Key
 				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, REDKEY_CATEGORY, 0x000E, 90, 1000, b2_dynamicBody, &lb_RedKeylist);
 				break;			
+			case 71:
 			case 83:  // Blue Key
 				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, BLUEKEY_CATEGORY, 0x000E, 91, 1000, b2_dynamicBody, &lb_BlueKeylist);
 				break;
+			case 72:
 			case 84:  // Green Key
 				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, GREENKEY_CATEGORY, 0x000E, 92, 1000, b2_dynamicBody, &lb_GreenKeylist);
 				break;
@@ -304,7 +325,7 @@ void TiledBodyCreator::initCollisionMap(TMXTiledMap* map, b2World* world, _Stage
 					break;
 				}
 			}
-			if (_stage == BOSS) {
+			//if (_stage == BOSS) {
 				m_nTileGid = this->collisionGround64->getTileGIDAt(Vec2(j, k));
 				if (m_nTileGid != 0) {
 					log("gid = %f", m_nTileGid);
@@ -315,12 +336,14 @@ void TiledBodyCreator::initCollisionMap(TMXTiledMap* map, b2World* world, _Stage
 				case 86:
 					break;
 				case 87:
+					initBlockShape(vertices, Size(0.0f, -1.0f), rectshape, vindex, BIGBLOCK_CATEGORY, 0xFFFF, 0, 3000, b2_staticBody, nullptr);
+					break;
 				case 88:
-					initBlockShape(vertices, Size(-1.0f, -1.0f), rectshape, vindex, 0x0002, 0xFFFF, 0, 27, b2_staticBody, nullptr);
+					initBlockShape(vertices, Size(0.0f, -1.0f), rectshape, vindex, BIGLBLOCK_CATEGORY, 0xFFFF, 0, 3000, b2_staticBody, nullptr);
 					break;
 
 				}
-			}
+			//}
 			//collisionBody->CreateFixture(&fix->fixture);
 		}
 		k--;
@@ -338,10 +361,10 @@ void TiledBodyCreator::initBlockShape(b2Vec2* vertices, Size size, b2PolygonShap
 	vertices[1].x = 0 + size.width;
 	vertices[1].y = 0 + (1 - size.height);
 
-	vertices[2].x = 0 + (1 - size.width);
+	vertices[2].x = 0 + (1 - size.height);
 	vertices[2].y = 0 + (1 - size.height);
 
-	vertices[3].x = 0 + (1 - size.width);
+	vertices[3].x = 0 + (1 - size.height);
 	vertices[3].y = 0 + 0.0f;
 	rectshape->Set(vertices, vindex);
 
@@ -860,7 +883,7 @@ b2Body* TiledBodyCreator::WhatObj(std::string sPath, std::string sPath_n, std::l
 	vertices[3].x = posi.x + (width - _objsize.width);
 	vertices[3].y = posi.y + 0.0f;
 
-	itemBody->SetHp(1000);
+	itemBody->SetHp(3000);
 	itemBody->SetType(b2_dynamicBody);
 
 	rectshape->Set(vertices, vindex);
@@ -1141,9 +1164,94 @@ void TiledBodyCreator::UserDataChange(Layer* layer, b2World* world) {
 					layer->addChild(SpData, Obj_ZOrder);
 					b->SetUserData(SpData);
 				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/Rock_Block.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
+			}
+			if (category == LBLOCK_CATEGORY) {
+				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/block.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
+				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/IceBlock.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/Rock_Block_Lava.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
+			}
+			if (category == BRIDGE_CATEGORY) {
+				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/block.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
+				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/IceBlock.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/Rock_Bridge.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
+			}
+			if (category == LBRIDGE_CATEGORY) {
+				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/block.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
+				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/IceBlock.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/Rock_Bridge_Lava.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
 			}
 			else if (category == GBLOCK_CATEGORY) {
-
 				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3) {
 					collisionGround->removeChild(removeSp, true);
 					std::string blockPath = "n_Images/block/gold_block_1.png";
@@ -1156,6 +1264,14 @@ void TiledBodyCreator::UserDataChange(Layer* layer, b2World* world) {
 				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
 					collisionGround->removeChild(removeSp, true);
 					std::string blockPath = "n_Images/block/Ice_GoldBlock.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/Rock_GoldBlock.png";
 					Sprite* SpData = Sprite::create(blockPath);
 					SpData->setAnchorPoint(Vec2::ZERO);
 					layer->addChild(SpData, Obj_ZOrder);
@@ -1180,9 +1296,96 @@ void TiledBodyCreator::UserDataChange(Layer* layer, b2World* world) {
 					SpData->setAnchorPoint(Vec2::ZERO);
 					layer->addChild(SpData, Obj_ZOrder);
 					b->SetUserData(SpData);
-					
 				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/Rock_HardBlock.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
+			}
+			else if (category == LHARDBLOCK_CATEGORY) {
+				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/hard_block_1.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
 
+				}
+				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/Ice_HardBlock.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/Rock_HardBlock_Lava.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
+			}
+			else if (category == BIGBLOCK_CATEGORY) {
+				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3) {
+					collisionGround64->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/hard_block_1_big.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+
+				}
+				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
+					collisionGround64->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/Ice_HardBlock_big.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					collisionGround64->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/Rock_HardBlock_big.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
+			}
+			else if (category == BIGLBLOCK_CATEGORY) {
+				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3) {
+					collisionGround64->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/hard_block_1_big.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+
+				}
+				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
+					collisionGround64->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/Ice_HardBlock_big.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					collisionGround64->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/Rock_HardBlock_Lava_big.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
 			}
 			else if (category == BLADEBLOCK_CATEGORY) {
 				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3) {
@@ -1196,12 +1399,19 @@ void TiledBodyCreator::UserDataChange(Layer* layer, b2World* world) {
 				}
 				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
 					collisionGround->removeChild(removeSp, true);
-					std::string blockPath = "n_Images/block/FallingBlade_BaseBlock.png";
+					std::string blockPath = "n_Images/block/FallingBlade_IceBaseBlock.png";
 					Sprite* SpData = Sprite::create(blockPath);
 					SpData->setAnchorPoint(Vec2::ZERO);
 					layer->addChild(SpData, Obj_ZOrder);
 					b->SetUserData(SpData);
-
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/FallingBlade_RockBaseBlock.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
 				}
 			}
 			else if (category == LGUNTRAP_CATEGORY) {
@@ -1216,13 +1426,21 @@ void TiledBodyCreator::UserDataChange(Layer* layer, b2World* world) {
 				}
 				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
 					collisionGround->removeChild(removeSp, true);
-					std::string blockPath = "n_Images/block/LGunTrap_BaseBlock.png";
+					std::string blockPath = "n_Images/block/LGunTrap_IceBaseBlock.png";
 					Sprite* SpData = Sprite::create(blockPath);
 					SpData->setAnchorPoint(Vec2::ZERO);
 					SpData->setFlippedX(true);
 					layer->addChild(SpData, Obj_ZOrder);
 					b->SetUserData(SpData);
-
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/LGunTrap_RockBaseBlock.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					SpData->setFlippedX(true);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
 				}
 			}
 			else if (category == RGUNTRAP_CATEGORY) {
@@ -1237,11 +1455,74 @@ void TiledBodyCreator::UserDataChange(Layer* layer, b2World* world) {
 				}
 				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
 					collisionGround->removeChild(removeSp, true);
-					std::string blockPath = "n_Images/block/GunTrap_BaseBlock.png";
+					std::string blockPath = "n_Images/block/GunTrap_IceBaseBlock.png";
 					Sprite* SpData = Sprite::create(blockPath);
 					SpData->setAnchorPoint(Vec2::ZERO);
 					layer->addChild(SpData, Obj_ZOrder);
 					b->SetUserData(SpData);
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string blockPath = "n_Images/block/GunTrap_RockBaseBlock.png";
+					Sprite* SpData = Sprite::create(blockPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+				}
+			}
+			else if (category == LAVA_CATEGORY) {
+				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3) {
+					collisionGround->removeChild(removeSp, true);
+					Sprite* SpData = Sprite::create();
+					SpData = this->CreateAnimation("n_Images/block/Lava_.plist", "Lava_%d.png", 3, 0.3, SpData, layer);
+					b->SetUserData(SpData);
+
+					lb_Lavalist.push_back(SpData);
+				}
+				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
+					collisionGround->removeChild(removeSp, true);
+					Sprite* SpData = Sprite::create();
+					SpData = this->CreateAnimation("n_Images/block/Lava_.plist", "Lava_%d.png", 3, 0.3, SpData, layer);
+					b->SetUserData(SpData);
+
+					lb_Lavalist.push_back(SpData);
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					collisionGround->removeChild(removeSp, true);
+					Sprite* SpData = Sprite::create();
+					SpData = this->CreateAnimation("n_Images/block/Lava_.plist", "Lava_%d.png", 3, 0.3, SpData, layer);
+					b->SetUserData(SpData);
+
+					lb_Lavalist.push_back(SpData);
+				}
+			}
+			else if (category == LAVAINSIDE_CATEGORY) {
+				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string potionPath = "n_Images/block/Lava_inside.png";
+					Sprite* SpData = Sprite::create(potionPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+					lb_Lavalist.push_back(SpData);
+				}
+				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string potionPath = "n_Images/block/Lava_inside.png";
+					Sprite* SpData = Sprite::create(potionPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+					lb_Lavalist.push_back(SpData);
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					collisionGround->removeChild(removeSp, true);
+					std::string potionPath = "n_Images/block/Lava_inside.png";
+					Sprite* SpData = Sprite::create(potionPath);
+					SpData->setAnchorPoint(Vec2::ZERO);
+					layer->addChild(SpData, Obj_ZOrder);
+					b->SetUserData(SpData);
+					lb_Lavalist.push_back(SpData);
 				}
 			}
 			else if (category == POTION_CATEGORY) {
@@ -1424,6 +1705,34 @@ void TiledBodyCreator::SpriteTrade(Layer* layer, b2Body* body, EffectSprite* _Ef
 	}
 }
 
+void TiledBodyCreator::setEffectAnimationSprite(b2Body* body, std::string& sPath, int nSheet_mx, Layer* _layer) {
+	m_layer = _layer;
+
+	auto spritecache = SpriteFrameCache::getInstance();
+	spritecache->addSpriteFramesWithFile(sPath);
+
+	Vector<SpriteFrame*> animFrames;
+	char str[100];
+	for (int i = 0; i < nSheet_mx; i++) {
+		sprintf(str, "meltblock_%d.png", i);
+		animFrames.pushBack(spritecache->getSpriteFrameByName(str));
+	}
+
+	Sprite* SpriteData = Sprite::createWithSpriteFrame(animFrames.front());
+	Animation* animation = Animation::createWithSpriteFrames(animFrames, 0.2f);
+	Animate* animate = Animate::create(animation);
+	Repeat* rep = Repeat::create(animate, 1.4);
+	//RepeatForever* rep = RepeatForever::create(animate);
+	SpriteData->runAction(rep);
+	SpriteData->setAnchorPoint(Vec2(0, 0));
+	SpriteData->setPosition(Vec2(100, 100));
+	m_layer->removeChild((Sprite*)body->GetUserData());
+	m_layer->addChild(SpriteData, 5);
+	
+	body->SetUserData(SpriteData);
+	//SpriteTrade(m_layer, body, SpriteData, "wlayer");
+}
+
 void TiledBodyCreator::setEffectAnimationSprite(b2Body* body, std::string& sPath, std::string& sPath_n, int nSheet_mx, std::string layertype) {
 	auto spritecache = SpriteFrameCache::getInstance();
 	spritecache->addSpriteFramesWithFile(sPath);
@@ -1447,7 +1756,7 @@ void TiledBodyCreator::setEffectAnimationSprite(b2Body* body, std::string& sPath
 	SpriteData->setPosition(Vec2(100, 100));
 	m_layer->removeChild((EffectSprite*)body->GetUserData());
 	m_layer->addChild(SpriteData, 5);
-	
+
 	body->SetUserData(SpriteData);
 	//SpriteTrade(m_layer, body, SpriteData, "wlayer");
 }
@@ -1582,4 +1891,51 @@ FixtureDef* TiledBodyCreator::createRect(ValueMap object)
 	fix->fixture.shape = rectshape;
 
 	return fix;
+}
+
+Sprite* TiledBodyCreator::CreateAnimation(const std::string& _sPath, const char* _cNames, int _nSize, float _fFrameTime, Sprite* _sprite, Layer* _layer) {
+	SpriteFrameCache* SFC = SpriteFrameCache::getInstance();
+
+	SFC->addSpriteFramesWithFile(_sPath);
+
+	Vector<SpriteFrame*> animFrames;
+	char str[100];
+	for (int i = 0; i < _nSize; i++) {
+		sprintf(str, _cNames, i);
+		animFrames.pushBack(SFC->getSpriteFrameByName(str));
+	}
+
+	_sprite = Sprite::createWithSpriteFrame(animFrames.front());
+	Animation* animation = Animation::createWithSpriteFrames(animFrames, _fFrameTime);
+	Animate* animate = Animate::create(animation);
+	RepeatForever* repF = RepeatForever::create(animate);
+	_sprite->runAction(repF);
+
+	_sprite->setAnchorPoint(Vec2(0.0, 0.0));
+	_sprite->setPosition(Vec2::ZERO);
+	_layer->addChild(_sprite, 1);
+	return _sprite;
+}
+
+bool TiledBodyCreator::LavaCollision(b2Body* _charactor_body, float _movetime, float* _delaytime, Layer* _layer) {
+	std::list<Sprite*>::iterator iter;
+
+	Sprite* Charactor_Sprite = static_cast<Sprite*>(_charactor_body->GetUserData());
+
+	for (iter = lb_Lavalist.begin(); iter != lb_Lavalist.end(); ++iter) {
+		Sprite* Lava_Sprite = *iter;
+		Rect rect = Lava_Sprite->getBoundingBox();
+	
+		if (rect.intersectsRect(Charactor_Sprite->getBoundingBox()) && (*_delaytime -= _movetime) <= 0) {
+			ParticleSystemQuad* Burn_Collision;
+			Burn_Collision = ParticleSystemQuad::create("Images/effects/Burn_Collision.plist");
+			Burn_Collision->setPosition(Vec2(Charactor_Sprite->getPosition()));
+			Burn_Collision->setScale(0.3f);
+			Burn_Collision->setAutoRemoveOnFinish(true);
+			_layer->addChild(Burn_Collision, 100);
+			*_delaytime = 2.0f;
+			return true;
+		}
+	}
+	return false;
 }

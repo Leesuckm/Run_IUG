@@ -314,6 +314,11 @@ void HelloWorld::tick(float dt) {
 	if (g_CharactorData.StageNumber != SHELTER) {
 		m_Obstacle->FallingBladeControl(gNumFallingBladeContacts, dt, &m_fCharactorPainDelay, Player->getCharactorBody());
 		m_Obstacle->GunTrapControl(gNumTrapBulletContacts, dt, &m_fCharactorPainDelay, &g_CharactorData, Player->getCharactorBody(), &gNumTrapBulletContacts);
+		if (Map_Body.getLavalist().size() > 0) {
+			if (Map_Body.LavaCollision(Player->getCameraBody(), dt, &m_fCharactorPainDelay, wlayer)) {
+				g_CharactorData.n_Hp_Count = g_CharactorData.n_Hp_Count - 2;
+			}
+		}
 	}
 	//log("gNum %d", gNumTrapBulletContacts);
 	if (nbefore_hp != g_CharactorData.n_Hp_Count) {
@@ -983,10 +988,10 @@ void HelloWorld::tick(float dt) {
 			PickupItem(&Map_Body.lb_Ladderlist);
 		}
 
-		//if (gNumGoldContacts > 0) {
-		log("Gold Contacts is Yes");
-		PickupItem(&Map_Body.lb_Goldlist);
-		//}
+		if (gNumGoldContacts > 0) {
+			log("Gold Contacts is Yes");
+			PickupItem(&Map_Body.lb_Goldlist);
+		}
 
 		if (gNumShopManContacts > 0) {
 			log("Shop Man Contacts is Yes");
@@ -1070,56 +1075,7 @@ void HelloWorld::tick(float dt) {
 		if(g_bViewing) m_Charactor_body->SetLinearVelocity(b2Vec2(-3, 5));
 		else if (!g_bViewing) m_Charactor_body->SetLinearVelocity(b2Vec2(3, 5));
 	}*/
-	/*
-	Sprite* PSP = (Sprite*)Player->getCharactorBody()->GetUserData();
-	if (PSP->getPosition().x != 0) {
-		//m_eye_distanceX = PSP->getPosition().x * 32 - m_Boss_eye_out->getPosition().x;
-	//	m_eye_distanceY = PSP->getPosition().y * 32 - m_Boss_eye_out->getPosition().y;
-	//	m_eye_distance = sqrt(pow(m_eye_distanceX, 2) + pow(m_eye_distanceY, 2));
-	//	m_eye_angle = atan2(m_eye_distanceY, m_eye_distanceX);
 
-		//if (m_eye_distance > m_eye_area) {
-			if (PSP->getPosition().x > m_Boss_eye_in->getPosition().x)
-			{
-				m_eye_distanceX = 0.7f;
-			}
-			if (PSP->getPosition().x < m_Boss_eye_in->getPosition().x)
-			{
-				m_eye_distanceX = -0.7f;
-			}
-			if (PSP->getPosition().y > m_Boss_eye_in->getPosition().y)
-			{
-				m_eye_distanceY = 0.7f;
-			}
-			if (PSP->getPosition().y < m_Boss_eye_in->getPosition().y)
-			{
-				m_eye_distanceY = -0.7f;
-			}
-			//m_eye_distanceX = cos(m_eye_angle) * m_eye_area;
-			//m_eye_distanceY = sin(m_eye_angle) * m_eye_area;
-			
-			Vec2 position = Vec2(m_Boss_eye_in->getPosition().x + m_eye_distanceX, m_Boss_eye_in->getPosition().y + m_eye_distanceY);
-			if (position.x < m_Boss_eye_out->getPosition().x + 30 && position.x > m_Boss_eye_out->getPosition().x - 30 && position.y < m_Boss_eye_out->getPosition().y + 30 && position.y > m_Boss_eye_out->getPosition().y - 30) {
-				m_Boss_eye_in->setPosition(position);
-				log("position %f %f", position.x, position.y);
-			}
-			else {
-				if (position.x > m_Boss_eye_out->getPosition().x + 30) {
-					position.x = m_Boss_eye_out->getPosition().x + 30 - 0.7f;
-				}
-				if (position.x < m_Boss_eye_out->getPosition().x - 30) {
-					position.x = m_Boss_eye_out->getPosition().x - 30 + 0.7;
-				}
-				if (position.y > m_Boss_eye_out->getPosition().y + 30) {
-					position.y = m_Boss_eye_out->getPosition().y + 30 - 0.7;
-				}
-				if (position.y < m_Boss_eye_out->getPosition().y - 30) {
-					position.y = m_Boss_eye_out->getPosition().y - 30 + 0.7;
-				}
-				m_Boss_eye_in->setPosition(position);
-			}
-		//}
-	}*/
 
 	m_clayer->setPosition(Vec2(wlayer->getPosition() * -1));	// ui Layer를 캐릭터와 함께 이동시켜준다.
 	m_RecognizeSp->setPosition(m_CameraSprite->getPosition()); // 캐릭터 인식 범위를 캐릭터와 함께 이동
@@ -1130,7 +1086,7 @@ void HelloWorld::tick(float dt) {
 	m_Frog->MonsterPatrol(_world, &Monsters, Player->getCharactorBody(), dt, wlayer, gNumFrogFootContacts);
 	m_Bat->MonsterPatrol(_world, &Monsters, Player->getCharactorBody(), dt, wlayer, gNumMonsterFootContacts);
 	if (g_CharactorData.StageNumber == BOSS) {
-		m_Boss->MonsterPatrol(_world, Player->getCameraBody(), dt, wlayer);
+		m_Boss->MonsterPatrol(_world, Player->getCameraBody(), dt, GunEffect, wlayer);
 		if (g_CharactorData.n_Hp_Count < nbefore_hp) {
 			CSoundManager::getInstance()->playEffect(SEF_Charactor_Pain_PATH);
 
@@ -1157,12 +1113,13 @@ void HelloWorld::tick(float dt) {
 				Player->getCharactorBody()->ApplyLinearImpulse(b2Vec2(2, 3), Player->getCharactorBody()->GetWorldCenter(), true);
 
 			m_fdt = 0;
-			g_CharactorData.n_Hp_Count--;
+
 			if (g_CharactorData.n_Hp_Count <= 0) GameOver(this);
 			//m_clayer->removeChild(m_HeartLabel, true);
 
 			m_GameUi->Heartmanager(&g_CharactorData);
 		}
+		
 		if (m_Boss->getBossState() == BOSS_PAIN) {
 			float interval = 1 / 60;
 			float duration = 0.8f;
@@ -1334,7 +1291,7 @@ void HelloWorld::tick(float dt) {
 						b->SetBroken(false);
 						std::string sPath = "n_Images/block/meltblock_.plist";
 						std::string sPath_n = "n_Images/block/meltblock_n.png";
-						Map_Body.setEffectAnimationSprite(b, sPath, sPath_n, 7, "wlayer");
+						Map_Body.setEffectAnimationSprite(b, sPath, 7, wlayer);
 					}
 					//if (b->GetType() == b2_staticBody) {
 					//	b->SetType(b2_dynamicBody);
@@ -2486,13 +2443,13 @@ void HelloWorld::CreateMap() {
 			break;
 		}
 	}
-
-	g_CharactorData.StageNumber = BOSS;
+	g_CharactorData.StageNumber = STAGE_3_1;
+	//g_CharactorData.StageNumber = BOSS;
 	if (g_CharactorData.StageNumber == SHELTER) {
 		TMXPath = "TileMaps/Shelter_Ground.tmx";
 	}
 	else {
-		TMXPath = "TileMaps/BaseGround_Boss.tmx";
+		TMXPath = "TileMaps/BaseGround17.tmx";
 		//std::string sNum = std::to_string(num);
 		//TMXPath[19] = *sNum.c_str();
 	}
@@ -2551,7 +2508,19 @@ void HelloWorld::CreateMap() {
 		Map_Body.UserDataChange(wlayer, _world); // Sprite
 
 		if (g_CharactorData.StageNumber >= STAGE_1_1 && g_CharactorData.StageNumber <= STAGE_1_3) {
-			BackGroundSp = Sprite::create("Images/Background/background_game.png");
+			BackGroundSp = Sprite::create("Images/Background/Normal_Background.png");
+			BackGroundSp->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
+			BackGroundSp->setPosition(Vec2::ZERO);
+			wlayer->addChild(BackGroundSp);
+		}
+		else if (g_CharactorData.StageNumber >= STAGE_2_1 && g_CharactorData.StageNumber <= STAGE_2_3) {
+			BackGroundSp = Sprite::create("Images/Background/Ice_Background.png");
+			BackGroundSp->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
+			BackGroundSp->setPosition(Vec2::ZERO);
+			wlayer->addChild(BackGroundSp);
+		}
+		else if (g_CharactorData.StageNumber >= STAGE_3_1 && g_CharactorData.StageNumber <= STAGE_3_3) {
+			BackGroundSp = Sprite::create("Images/Background/Lava_Background2.png");
 			BackGroundSp->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
 			BackGroundSp->setPosition(Vec2::ZERO);
 			wlayer->addChild(BackGroundSp);
@@ -2596,7 +2565,7 @@ void HelloWorld::CreateMap() {
 		Map_Body.UserDataChange(wlayer, _world);
 
 		m_Boss = new BossMonster;
-		m_Boss->CreateBossMap(wlayer, &g_CharactorData);
+		m_Boss->CreateBossMap(wlayer, _world, &g_CharactorData);
 
 		m_Obstacle = new Obstacle(_world, wlayer, m_PlayerLight);
 		m_Obstacle->CreateObstacle(&g_CharactorData);
@@ -2703,7 +2672,7 @@ void HelloWorld::CreateCharactor() {
 
 	//Player->Laddermanager(m_clayer, g_CharactorData.n_Ladder_Count);
 
-	GunEffect = new EffectAnimation;
+	GunEffect = new EffectAnimation(wlayer);
 }
 
 
@@ -2978,10 +2947,10 @@ void HelloWorld::doLadderequip(Ref* pSender) {
 }
 
 void HelloWorld::doThrowBomb(Ref* pSender) {
-	this->clearFloor();
+	//this->clearFloor();
 	// Stage를 이동하면서 Scene을 바꾸기 전 한번 Frame을 거쳐 Scene 전환이 이루어지기 때문에 Scene 전환 중 이라면 Frame 진행을 아예 할 수 없도록 막기 위해.
-	m_bChangeStage = true; 	
-	/*
+	//m_bChangeStage = true; 	
+	
 	g_isThrow = false;
 	m_bCan_Move = true;
 	
@@ -3000,17 +2969,17 @@ void HelloWorld::doThrowBomb(Ref* pSender) {
 		m_GameUi->Bombmanager(g_CharactorData.n_Bomb_Count);
 		b2Body* bomb_body;
 		if (g_bViewing) {
-			bomb_body = Map_Body.CreateBomb(Player->getCharactorBody()->GetPosition(), _world, wlayer);
-			Map_Body.getBombBody()->ApplyLinearImpulse(b2Vec2(m_throwpower.x, m_throwpower.y), Player->getCharactorBody()->GetWorldCenter(), true);
+			bomb_body = Map_Body.CreateObj("Bomb", Player->getCharactorBody()->GetPosition() + b2Vec2(-1, 0), _world, wlayer);
+			bomb_body->ApplyLinearImpulse(b2Vec2(m_throwpower.x, m_throwpower.y), Player->getCharactorBody()->GetWorldCenter(), true);
 		}
 		else if (!g_bViewing) {
-			bomb_body = Map_Body.CreateBomb(Player->getCharactorBody()->GetPosition() + b2Vec2(-1, 0), _world, wlayer);
-			Map_Body.getBombBody()->ApplyLinearImpulse(b2Vec2(-m_throwpower.x, m_throwpower.y), Player->getCharactorBody()->GetWorldCenter(), true);
+			bomb_body = Map_Body.CreateObj("Bomb",Player->getCharactorBody()->GetPosition() + b2Vec2(-1, 0), _world, wlayer);
+			bomb_body->ApplyLinearImpulse(b2Vec2(-m_throwpower.x, m_throwpower.y), Player->getCharactorBody()->GetWorldCenter(), true);
 		}
 		m_Explosion->CreateExplosion(bomb_body, 3, wlayer);
 
 		m_fpowertime = 0;
-	}*/
+	}
 }
 
 void HelloWorld::doPickup(Ref* pSender) {

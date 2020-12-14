@@ -203,10 +203,19 @@ void Obstacle::GunTrapControl(int contect, float dt, float* _delaytime, Characto
 			// GunTrap 인식 범위 Sprite에 Charactor Sprite가 겹치면 bullet body 생성
 			if (rect.intersectsRect(charactor_sprite->getBoundingBox())) {
 				if (m_Charactor_data->bStage_blind) {
-					GunTrapFireAnimation(gunObstacle, m_lighteffect);
+					GunTrapFireAnimation(gunObstacle, "n_Images/obstacle/GunTrap_Fire_.plist", "n_Images/obstacle/GunTrap_Fire_n.png", "GunTrap_Fire_%d.png" , m_lighteffect);
 				}
 				else {
-					GunTrapFireAnimation(gunObstacle);
+					log("%d", m_Charactor_data->StageNumber);
+					if (m_Charactor_data->StageNumber >= STAGE_1_1 && m_Charactor_data->StageNumber <= STAGE_1_3) {
+						GunTrapFireAnimation(gunObstacle, "Images/obstacle/GunTrap_Fire_.plist", "GunTrap_Fire_%d.png");
+					}
+					else if (m_Charactor_data->StageNumber >= STAGE_2_1 && m_Charactor_data->StageNumber <= STAGE_2_3) {
+						GunTrapFireAnimation(gunObstacle, "Images/obstacle/GunTrap_Fire_ice_.plist", "GunTrap_Fire_ice_%d.png");
+					}
+					else if (m_Charactor_data->StageNumber >= STAGE_3_1 && m_Charactor_data->StageNumber <= STAGE_3_3) {
+						GunTrapFireAnimation(gunObstacle, "Images/obstacle/GunTrap_Fire_Rock_.plist", "GunTrap_Fire_Rock_%d.png");
+					}
 				}
 				Sprite* TrapBullet_Sprite = Sprite::create("Images/obstacle/TrapBullet.png");
 				m_layer->addChild(TrapBullet_Sprite, 3);
@@ -270,19 +279,16 @@ void Obstacle::GunTrapControl(int contect, float dt, float* _delaytime, Characto
 
 }
 
-void Obstacle::GunTrapFireAnimation(GunObstacle* _gunObstacle) {
+void Obstacle::GunTrapFireAnimation(GunObstacle* _gunObstacle, const std::string& _sPlist_Path, const char* _sFilename_Path) {
 	int nSheetmx = 6;
-	std::string sPath;
-	
-	sPath = "Images/obstacle/GunTrap_Fire_.plist";
 
 	SpriteFrameCache* spritecache = SpriteFrameCache::getInstance();
-	spritecache->addSpriteFramesWithFile(sPath);
+	spritecache->addSpriteFramesWithFile(_sPlist_Path);
 
 	Vector<SpriteFrame*> animFrames;
 	char str[100];
 	for (int i = 0; i < nSheetmx; i++) {
-		sprintf(str, "GunTrap_Fire_%d.png", i);
+		sprintf(str, _sFilename_Path, i);
 		animFrames.pushBack(spritecache->getSpriteFrameByName(str));
 	}
 
@@ -299,19 +305,19 @@ void Obstacle::GunTrapFireAnimation(GunObstacle* _gunObstacle) {
 	return;
 }
 
-void Obstacle::GunTrapFireAnimation(GunObstacle* _gunObstacle, LightEffect* _lighteffect) {
+void Obstacle::GunTrapFireAnimation(GunObstacle* _gunObstacle, const std::string& _sPlist_Path, const std::string& _sSheet_Path, const char* _cFilename_Path, LightEffect* _lighteffect) {
 	int nSheetmx = 6;
 	std::string sPath;
 	std::string sPath_f;
 	sPath = "n_Images/obstacle/GunTrap_Fire_.plist";
 	sPath_f = "n_Images/obstacle/GunTrap_Fire_n.png";
 	SpriteFrameCache* spritecache = SpriteFrameCache::getInstance();
-	spritecache->addSpriteFramesWithFile(sPath);
+	spritecache->addSpriteFramesWithFile(_sPlist_Path);
 
 	Vector<SpriteFrame*> animFrames;
 	char str[100];
 	for (int i = 0; i < nSheetmx; i++) {
-		sprintf(str, "GunTrap_Fire_%d.png", i);
+		sprintf(str, _cFilename_Path, i);
 		animFrames.pushBack(spritecache->getSpriteFrameByName(str));
 	}
 
@@ -330,7 +336,7 @@ void Obstacle::GunTrapFireAnimation(GunObstacle* _gunObstacle, LightEffect* _lig
 		EfnewSpData->setAnchorPoint(Vec2(0, 0));
 	}
 	EfnewSpData->setColor(_lighteffect->getAmbientLightColor());
-	EfnewSpData->setEffect(_lighteffect, sPath_f);
+	EfnewSpData->setEffect(_lighteffect, _sSheet_Path);
 	m_layer->addChild(EfnewSpData);
 	_gunObstacle->BaseBody->SetUserData(EfnewSpData);
 	if (_gunObstacle->BaseBody->GetFixtureList()->GetFilterData().categoryBits == LGUNTRAP_CATEGORY) {

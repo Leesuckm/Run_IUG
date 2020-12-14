@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="23" nextobjectid="2099">
- <tileset firstgid="1" source="BaseMap.tsx"/>
- <tileset firstgid="65" source="Items.tsx"/>
- <layer id="15" name="Ground" width="60" height="32">
-  <data encoding="base64" compression="zlib">
-   eJzlWItqAzEMCwcbFLau//+1o1BD6lmW5HZQqCDc9c4PKXHctKf1PjjdRuAMxmpsKqDn7F1lq9gj3pf02dWLYsZw/M7pXWXraFM47XoZHyVH9z5ry1cENT/SvOfMepU8jo2zzh2HqfYck61vV1vV86OJVT1HMZX5VZ6vpetlmNaZurbPzB0IvQexY3kVTtM4Dli+0KvUPorrzE/g07B1MdGrxJvqnfjl+ZnOc6dX7SuZT5cf7Vu3jrq+FahqyOnPFUclvxJT8a90sVioXykcK5vqHNPFYlrYfKB79j6+J6vz5CVdnbWdct8/o3Opso7MJ+u9LL5mLBeyQch26FyK8iraY+T9i87Zx7rn7OpYwLbiu+fvzmuVD6uNql8p5/6sCWlVodZlFbvTm3N05w21ZjvuCB/Ez9knVV0gf0VvxWmvMwcsPtPUrb2in52vWK06davOqaN5rb9cOs2VXpd79Q7Zo/v/1p31Zh4MKgfkq0Kta2Ueruj+3+i4VjWj9EgHE23IL5D1Houj2yfsbKnErvIw24wf8Fzdv4j/I3POarDrD9O6mfarPXfmoXBV5wf5TuGur1qTj3Dr/L5u1+/CR4Gil/F3/5vpuD2ydlew/tPpdfuj20efDSXXrteN9Wqj+40UY/p74RUH07rrfafxC+jTOZA=
-  </data>
- </layer>
- <layer id="21" name="Item" width="60" height="32">
-  <data encoding="base64" compression="zlib">
-   eJzt2EkKwCAQBVGvljn3P5G4CGSZiKTsWG8t+BW1G1OS9CcLHUBVJjqANIANnt97rpaOD+aIfGZb9ENR13/SASTASgdQCHQvWMx0gM7tL8b691HPvZN0d70JPdRJQqnNT3pJa7giymr5BUY=
-  </data>
- </layer>
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="2099">
+ <tileset firstgid="1" name="BaseMap" tilewidth="32" tileheight="32" tilecount="76" columns="4">
+  <image source="spelunky.png" width="128" height="608"/>
+  <tile id="9">
+   <properties>
+    <property name="Name" value="Ground"/>
+    <property name="Type" value="Static"/>
+   </properties>
+  </tile>
+  <tile id="13" type="brok">
+   <properties>
+    <property name="Name" value="Ground"/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="Name" value="Test"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="77" source="Items.tsx"/>
+ <tileset firstgid="85" source="BaseMap_64.tsx"/>
  <objectgroup id="16" name="Collision" visible="0">
   <object id="86" x="32" y="960" width="32" height="32"/>
   <object id="88" x="64" y="960" width="32" height="32"/>
@@ -1635,4 +1644,19 @@
    </properties>
   </object>
  </objectgroup>
+ <layer id="23" name="Ground_64" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztzgENAAAIA6C3tH8TY1w3SEACAAAAAAAAP0w7AMctL0sAWA==
+  </data>
+ </layer>
+ <layer id="15" name="Ground" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzlWItqAzEMCwcbFLau//+1o1BD6lmW5HZQqCDc9c4PKXHctKf1PjjdRuAMxmpsKqDn7F1lq9gj3pf02dWLYsZw/M7pXWXraFM47XoZHyVH9z5ry1cENT/SvOfMepU8jo2zzh2HqfYck61vV1vV86OJVT1HMZX5VZ6vpetlmNaZurbPzB0IvQexY3kVTtM4Dli+0KvUPorrzE/g07B1MdGrxJvqnfjl+ZnOc6dX7SuZT5cf7Vu3jrq+FahqyOnPFUclvxJT8a90sVioXykcK5vqHNPFYlrYfKB79j6+J6vz5CVdnbWdct8/o3Opso7MJ+u9LL5mLBeyQch26FyK8iraY+T9i87Zx7rn7OpYwLbiu+fvzmuVD6uNql8p5/6sCWlVodZlFbvTm3N05w21ZjvuCB/Ez9knVV0gf0VvxWmvMwcsPtPUrb2in52vWK06davOqaN5rb9cOs2VXpd79Q7Zo/v/1p31Zh4MKgfkq0Kta2Ueruj+3+i4VjWj9EgHE23IL5D1Houj2yfsbKnErvIw24wf8Fzdv4j/I3POarDrD9O6mfarPXfmoXBV5wf5TuGur1qTj3Dr/L5u1+/CR4Gil/F3/5vpuD2ydlew/tPpdfuj20efDSXXrteN9Wqj+40UY/p74RUH07rrfafxC+jTOZA=
+  </data>
+ </layer>
+ <layer id="21" name="Item" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt2EkKwCAQBVEvmDn3P4u4CGSZiKTsWG8t+BW1G1OS9CcLHUBVJjqANIANnt97rpaOD+aIfGZb9ENR13/SASTASgdQCHQvWMx0gM7tL8b691HPvZN0d70JPdRJQqnNT3pJa7giymftBjY=
+  </data>
+ </layer>
 </map>

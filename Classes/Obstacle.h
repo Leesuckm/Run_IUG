@@ -72,8 +72,8 @@ public:
 	Charactor_Data* FallingBladeControl(int contect, float dt, float* _delaytime, b2Body* _charactor_body);
 	void GunTrapControl(int contect, float dt, float* _delaytime, Charactor_Data* _charactor_data, b2Body* _charactor_body, int* _contactBullet);
 	bool GunBulletCollision(Sprite* charactor_sprite, int* _contactBullet);
-	void GunTrapFireAnimation(GunObstacle* _gunObstacle);
-	void GunTrapFireAnimation(GunObstacle* _gunObstacle, LightEffect* _lighteffect);
+	void GunTrapFireAnimation(GunObstacle* _gunObstacle, const std::string& _sPlist_Path, const char* _cFilename_Path);
+	void GunTrapFireAnimation(GunObstacle* _gunObstacle, const std::string& _sPlist_Path, const std::string& _sSheet_Path, const char* _cFilename_Path, LightEffect* _lighteffect);
 	
 
 	Sprite* getLavaSprite() {return m_Lava_Sprite; };
