@@ -9,11 +9,11 @@ Theme is Mobile 2d Platformer Game.
 
 To go from the ground to the ground Using all kinds of items It's a game where you have to go over obstacles and monsters and face up.
 
-Current situation: Current Map 1F, 2F, BossFloor
+Current situation: Current Map 1F, 2F, 3F, BossFloor
 
 Monster: Skeleton, Opossum, frog, bat, Boss
 
-Obstacle : FallingBlade, GunTraps, Lava Eruption
+Obstacle : BaseObstacle, FallingBlade, GunTraps, Lava Eruption, stagnant Lava
 
 Item: Pickaxe, Sword, Gun, Bomb, Ladder, Potion
 
@@ -25,7 +25,8 @@ Jump : Keyboard // only for Test.ver
 Attack : Button 
 Interaction: Button
 
-Vidio : https://youtu.be/HMjZ5ArIqCs
+Vidio : https://www.youtube.com/watch?v=42nH7ynDoIM // youtube link
+Blog  : https://blog.naver.com/aks0309/222185692695 // blog link
 
 almost pixel sprite & sound is selfmade or selffixed free pixel sprite, sound T - T
 
