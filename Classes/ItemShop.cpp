@@ -85,7 +85,7 @@ void ItemShop::ItemToSell() {
 			m_sell_list.push_back(menu);
 			break;
 		case 1:
-			menuitem = MenuItemImage::create("Images/ui/Bomb_button.png", "Images/ui/Bomb_button_selected.png",
+			menuitem = MenuItemImage::create("Images/ui/ShopBomb_button.png", "Images/ui/ShopBomb_button_selected.png",
 				CC_CALLBACK_1(ItemShop::buyBomb, this));
 			menu = Menu::create(menuitem, nullptr);
 			menu->setPosition(Vec2(0, 0));
@@ -173,7 +173,7 @@ void ItemShop::selectItem(Menu* item, _SelectedItem item_name) {
 			break;
 		case IT_BOMB:
 			m_nSum += BOMB_PRICE;
-			menuitem = MenuItemImage::create("Images/ui/Bomb_button.png", "Images/ui/Bomb_button_selected.png",
+			menuitem = MenuItemImage::create("Images/ui/ShopBomb_button.png", "Images/ui/ShopBomb_button_selected.png",
 				CC_CALLBACK_1(ItemShop::cancel_Bomb, this));
 			menu = Menu::create(menuitem, nullptr);
 			menu->setPosition(Vec2(0, 0));
@@ -294,7 +294,7 @@ void ItemShop::buy(Ref* pSender) {
 				break;
 			case IT_BOMB:
 				m_Charactor_Gold -= BOMB_PRICE;
-				item = m_Item_creator->CreateObj("Bomb", m_position, m_world, m_wlayer);
+				item = m_Item_creator->CreateObj("ShopBomb", m_position, m_world, m_wlayer);
 				m_sell_ItemQ.push(item);
 				ShopBackground->removeChildByTag(IT_BOMB, true);
 				iter = m_select_vc.erase(iter);

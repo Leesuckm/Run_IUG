@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="2086">
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="25" nextobjectid="2086">
  <tileset firstgid="1" source="BaseMap.tsx"/>
- <tileset firstgid="65" source="Items.tsx"/>
+ <tileset firstgid="77" source="Items.tsx"/>
+ <tileset firstgid="85" source="BaseMap_64.tsx"/>
  <layer id="15" name="Ground" width="60" height="32">
   <data encoding="base64" compression="zlib">
    eJzlWdGKwzAMK4Pbt+wP1v//slG4gPFJlpTtniYI1zaOIie20/Uex/fg8dsQnqApODY7SDRMYP4m3GxNnqQfce/MpXQgG+TvpNOZl83v9P1XfCx0f934ZX1p/E9jd9rEeaH6W5+zsY5OF+6YnThi9t3fVFfi31mayz8hrRkXJn+VDicvV1t+rmuX7wfYpLgdmb+OtmltTtAmXsTprL2jE9VnFHMTxzSfOz7FfZNv+Vvtu78oJ47W78x3b/e7Pif73oHOI8TpaEht1Lo5a9v1qrnR/rp1aqeesnt1fp6DDeNQ9bnbMJ2uRvQc3Sv7Wt8VKhfinN4nEY+7705Nm/gQz1n6HCDuHs/OOePsnxMnaXzWPd6tK+x9UnFO++fWujSO3PWZ6jfy92r1nUTxo2ulXemf6k5aM+p7To1np0YxXWzstNZMpxurrr76HovOo65Z8Tmxy8b0uZK8dGyn/UV8DlKfpz1PYxVxonE9f9+NKZTHydh36ltiz96vug6lkdUuB2xvumZnny/cjr96FtD5i7SgPqSX1WYnTtl6JXWUrV3PXwcsPxw9qk4zvv5NZDfmUX3ejd9PgHEn3woUf7q/dWz966D/9q1cU22tscjWXI2vcP+/oODO7WhV3L1P6apIvz8nObjj2yFs0Do6Y9fznr/sm+kn8encV/z1uvrb64ICy0mFej7uxLMTUwyPL2wvAR6YZQ==
@@ -9,7 +10,7 @@
  </layer>
  <layer id="21" name="Item" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt1jkKgDAURVG3pnHa/4osFVQEEZ/DOdUvUtwi/KSqAAC4Q50OuEmfDtjQpAM4pUsHPFxZzO747C+7FpKGdAC7vAdrbTpgYUwHwAt88S9Xjo8AXG4CrV8Dbg==
+   eJzt1jkKgDAURVE3qHHa/1osFVQEEZ/DOdUvUtwi/KSqAAC4Q50OuEmfDtjQpAM4pUsHPFxZzO747C+7FpKGdAC7vAdrbTpgYUwHwAt88S9Xjo8AXG4CyscECg==
   </data>
  </layer>
  <objectgroup id="16" name="Collision" visible="0">
@@ -1665,4 +1666,9 @@
    </properties>
   </object>
  </objectgroup>
+ <layer id="24" name="Ground_64" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztzkERAAAIA6AFtX8OU+x8CAlI/pnrAAAAAAAAAEDBAo7mAF0=
+  </data>
+ </layer>
 </map>

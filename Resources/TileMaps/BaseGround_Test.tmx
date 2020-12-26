@@ -2,14 +2,15 @@
 <map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="25" nextobjectid="2086">
  <tileset firstgid="1" source="BaseMap.tsx"/>
  <tileset firstgid="77" source="Items.tsx"/>
+ <tileset firstgid="85" source="BaseMap_64.tsx"/>
  <layer id="15" name="Ground" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt2UELgCAMhmEvHbxI///Xxg5CiGnDuY3PPSB0Sl+SEsoppXzYKIeM2tsjPdfXHFyj+82MejVw173SSqR67x+jh7P21VbC6ZXe09z1r7YSy/2s/WyJ997Z+47Lc69kZ+W9V5p17+i7jNZLZr2a5ysNpbkuzTX3vDbjsXfXXibWvdXOxjcvvVqiF1v0YotebNGLLXqxRS+26MVm3Xspz2f9X9JiPNxoD/A=
+   eJztmUsKxCAMQN3MQDcy9z/tkIUQJE2MBo3GB1LpoubhpxqflNITrOQgpfhSWLf11oYW7nsSnO8MtHGPuAJWvr+GQqGJfdQV0Phaj2lt/KOuwMrxPLtvAe++0nqnxbOvpWfBu681q325//JpvgDltGp/NYNc1XNV1+7XJLz4WvlIrPadzfU9m+t7Ntf3bHD+KgKRfXd07t0/43dcvml33vLP3n1LX+FnS36Q8t1hzabmHsTc47vDXKbi6+3fkfPmpz1kE/A4tPaVci/WZ3MOav7Wd2KFL6pHvS+LVP6tEhhY
   </data>
  </layer>
  <layer id="24" name="Ground_64" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJztwQENAAAAwqD3T20PBxQAAAAAAAAADwYeAAAB
+   eJztzgEJAAAMA6D1fP8ejzEYmsAEtlw7AAAAAAAAACUPxysAXA==
   </data>
  </layer>
  <layer id="23" name="Treasure_chest" width="60" height="32">
@@ -19,7 +20,7 @@
  </layer>
  <layer id="21" name="Item" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJztzrENwCAQBMFvEAO2+6+F64GAgBlp860CAAAAAAAAbtLSk3oaaaY3fek/+MW+BafMAoU=
+   eJztzsEJADAMxLDM2Gb/WXJTNFAk8N9VAAAAAAC8dlKnuz0CAHxlAEPUAPo=
   </data>
  </layer>
  <objectgroup id="16" name="Collision" visible="0">
@@ -1621,25 +1622,25 @@
   <object id="2020" x="1888" y="992" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="20" name="SpawnPoint">
-  <object id="2079" name="Sp" x="322.333" y="837.333" rotation="18.4699"/>
+  <object id="2079" name="Sp" x="369" y="842.666" rotation="18.4699"/>
  </objectgroup>
  <objectgroup id="22" name="M_SpawnPoint">
-  <object id="2075" name="Skel_Sp" x="1702.33" y="237.668">
+  <object id="2075" name="Skel_Sp" x="967.667" y="885.668">
    <properties>
     <property name="Name" value="Skel"/>
    </properties>
   </object>
-  <object id="2076" name="Opsm_Sp" x="1425" y="273">
+  <object id="2076" name="Opsm_Sp" x="1149" y="873">
    <properties>
     <property name="Name" value="Opossum"/>
    </properties>
   </object>
-  <object id="2077" name="Frog_Sp" x="1591.33" y="245.333">
+  <object id="2077" name="Frog_Sp" x="1346" y="861.333">
    <properties>
     <property name="Name" value="Frog"/>
    </properties>
   </object>
-  <object id="2078" name="Bat_Sp" x="1798.67" y="184.667">
+  <object id="2078" name="Bat_Sp" x="1857.33" y="238">
    <properties>
     <property name="Name" value="Bat"/>
    </properties>

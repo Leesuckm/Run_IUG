@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="2088">
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="25" nextobjectid="2088">
  <tileset firstgid="1" source="BaseMap.tsx"/>
- <tileset firstgid="65" source="Items.tsx"/>
+ <tileset firstgid="77" source="Items.tsx"/>
+ <tileset firstgid="85" source="BaseMap_64.tsx"/>
  <layer id="15" name="Ground" width="60" height="32">
   <data encoding="base64" compression="zlib">
    eJzlWFuKwzAMDPnoWXKD5P4nK4UajCppZiSnUDrgj92VR5ro4bWP7X9wvBeLc1q/CEXvL+scGHqRlo7Wk1zfwJzfyK8aa0XL3foHZ1bPFd+M/UPg6ej2vp+tZ+vjei+Fn/Wv5l2JIdqD5tVrz0XEmsXE1D2CZ/dw/o64snnViUXhYGMdNsz3t7xe/3p6EbpaK/6y/trB/khvlG/PfxabEhPK0zUtL1bm29v+3Z39EZ+a28ssdl9kxwLNZ5YP6bVg9M68nV6JONT/n5G/LFZFb/az5wv5Hoj0rqgppeYq+5hajOZz1Jto3ltbz5cK9myx8TLw8pvFzs6rbB+CUs+KH28+Ix8dO6a/7vA9+6/OZ1TD1Vr2OJQzAMWS5bd7JlXBzoHK90b3QY+H8ZvFsGquoxnmgbkvKHOpCyYOpV+i8yjjVfgU3d59jkF0TjA1hvo3mxWovlctjxsh4pn1eu8s3Trt5L8SC/KB3nMsh9JbygxDqNSCB/a+0M1NFatqAvVv1//KOFk7Jb8v2/ntIJp/Z/K7CtTaZN5yPf6hbc4v8/aK+se+ubA9p8xre4/OcjPbb9tnPSvvzVmcVd0MmDcDaz9w/OF6ArXvip4=
@@ -9,7 +10,7 @@
  </layer>
  <layer id="21" name="Item" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt17kNgEAMBMBrjffovyJCUgTCi2Cmgd3AsuXWAPiCMV0AOG1IF+CVEnPhdhx6ugDwGLvunildAPgNfxIwF2QsBRlXrYHMLZBJjR2wAAMr
+   eJzt17kNgEAMBMBrkPfovxZCUgTCi2Cmgd3AsuXWAPiCMV0AOG1IF+CVEnPhdhx6ugDwGLvunildAPgNfxIwF2QsBRlXrYHMLZBJjR1GmQO7
   </data>
  </layer>
  <objectgroup id="16" name="Collision" visible="0">
@@ -1614,7 +1615,7 @@
   <object id="2075" name="Sp" x="876" y="486"/>
  </objectgroup>
  <objectgroup id="22" name="M_SpawnPoint">
-  <object id="2076" name="Skel_Sp" x="882" y="274">
+  <object id="2076" name="Skel_Sp" x="1032" y="620">
    <properties>
     <property name="Name" value="Skel"/>
    </properties>
@@ -1675,4 +1676,9 @@
    </properties>
   </object>
  </objectgroup>
+ <layer id="24" name="Ground_64" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztzkERAAAIA6AFtX8OU+x8CAlI/pnrAAAAAAAAAEDBAo7mAF0=
+  </data>
+ </layer>
 </map>

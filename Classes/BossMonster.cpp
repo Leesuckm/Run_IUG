@@ -394,6 +394,22 @@ void BossMonster::Pattern_IDLE() {
 	for (Sprite* Fires : m_Fire_vc) {
 		m_layer->removeChild(Fires, true);
 	}
+
+	if (m_Lightningbody_vc.size() > 0) {
+		for (int i = 0; i < m_Lightningbody_vc.size(); i++) {
+			Sprite* removeSprite = (Sprite*)m_Lightningbody_vc.at(i)->GetUserData();
+			m_layer->removeChild(removeSprite, true);
+			m_world->DestroyBody(m_Lightningbody_vc.at(i));
+			//int afterHp = m_Lightningbody_vc.at(i)->GetHp() - 3002;
+			//m_Lightningbody_vc.at(i)->SetHp(afterHp);
+		}
+		m_Lightningbody_vc.clear();
+	}
+	else {
+		m_Lightningbody_vc.clear();
+	}
+	
+
 	m_Column_vc.clear();
 	m_Fire_vc.clear();
 }
@@ -565,7 +581,7 @@ void BossMonster::CreateLightningBall() {
 	fixtureDef.friction = 0.0f;
 	fixtureDef.restitution = 1.1f;
 	fixtureDef.filter.categoryBits = LIGHTNING_CATEGORY;
-	fixtureDef.filter.maskBits = 0x0022;
+	fixtureDef.filter.maskBits = 0xFFFE;
 
 	LightningBall_body->CreateFixture(&fixtureDef);
 

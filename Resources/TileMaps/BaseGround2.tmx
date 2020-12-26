@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="23" nextobjectid="2090">
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="2090">
  <tileset firstgid="1" source="BaseMap.tsx"/>
- <tileset firstgid="65" source="Items.tsx"/>
+ <tileset firstgid="77" source="Items.tsx"/>
+ <tileset firstgid="85" source="BaseMap_64.tsx"/>
  <layer id="15" name="Ground" width="60" height="32">
   <data encoding="base64" compression="zlib">
    eJzlWe2KwzAMC4Mr7M/Y+z/tMVg5YyRZdnPHwQxhXePYkj/SdLuvz5H7e2R5gFHNRz01X9l2/Ux8nHwVL+TXlat8u3Zcvogj8ucI4pFzX+nvkoovwxjluOBT8drJG/XWS3I9OzaYbtXLSk/lvyvdelY2kM0FPpEOwqLwdeso+mB21f6cMSrMap3D7cpehrAzn2y/QhzXwnbQvDOe7+HEpSss7mp/dnuOYXP5Mt67ctzJr1PHndz9RT1nTPE7eh6hmorzjCPKG8PNeO3Ob75G5yvXJ9PJfB1szC6ad+yxnEW+Tv0xXFdyVPWGy1etZXynnJW/iiubn9SZ8vOS6n1Bye0Cxi7Wbr8dYP1LJnwrf66tHfVaYcp6Hb5Vf3TwLKDDcuLYcOM+fV9wMbm1PelVN+aIr8uzwtQ5MznjS2DJ9xRexXfSF6fu5GzYzVPVG2ptrGfG0RE3X2zdxNZkuL/nMCwV9rxG3cs2dvI87bHzcyfmSjq9EHHd1k9/PMC1ignjofL7m3wdncjR2f9u4B6yzfq3g5lxRn4VV+Qr8nTzq/Li1vNEVAyRP8Rj8nzLa57BX/X/ghJ0HurUvdLr5M3hnPmePVCJy0fNH0BnB8doy+HbtZklxsvlgHRWup/jpHyi/Ma1sZ53xfc/j/sHjm8Owzxo
@@ -9,7 +10,7 @@
  </layer>
  <layer id="21" name="Item" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt2EsOwCAIRVG31trf/lfktANjGxERvWcB5EUDEkMAgDrn4PXwzeOZ/818qKawsVkHGMhjHQBZ7/6MZil8kc7h0lzYhbUBoIQ5r2PGHVaC/Xdtre6fnUhfbqe9u6dYh8e/nJ54O+BVTW9fzVNgJgngrQYa
+   eJzt2EsOwCAIRVE32Nrf/tfitANjGxERvWcB5EUDEkMAgDrn4PXwzeOZ/818qKawsVkHGMhjHQBZ7/6MZil8kc7h0lzYhbUBoIQ5r2PGHVaC/Xdtre6fnUhfbqe9u6dYh8e/nJ54O+BVTW9fzVNgJgkV7Acu
   </data>
  </layer>
  <objectgroup id="16" name="Collision" visible="0">
@@ -1695,4 +1696,9 @@
    </properties>
   </object>
  </objectgroup>
+ <layer id="23" name="Ground_64" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztzkERAAAIA6D1tH8PU+x8CAlI/pnrAAAAAAAAAEDBAnHaAFw=
+  </data>
+ </layer>
 </map>

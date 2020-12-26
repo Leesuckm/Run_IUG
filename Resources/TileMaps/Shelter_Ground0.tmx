@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="25" nextobjectid="2088">
- <tileset firstgid="1" source="BaseMap.tsx"/>
- <tileset firstgid="77" source="Items.tsx"/>
- <tileset firstgid="85" source="BaseMap_64.tsx"/>
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="27" nextobjectid="2090">
+ <layer id="23" name="Treasure_chest" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20PBxQAAAAAAAAADwYeAAAB
+  </data>
+ </layer>
  <layer id="15" name="Ground" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJzlWFFqQzEMK4PtLL1Be/+TjUEDxsi2ZPuVQQX56YttKU9x8nq/fQ7ur+HxaOZ7JKMT160fIdPL1J5wq5Dl7q5LpHfCZTNmC6fu0ctwmHqNhVonmo9+t3qruVUdJb6zr7PaKA7B671qH74DX8Vz6+c/PF8D8ftZ4DNd06z3s36y79fqjbyp1L5CzzSnfb82Z2fP+LkdTps4OZ9mRP3qFvzWqcf0u62caB7SW8VNcOW7Uwdz34j2btUPuzi9sbN3/Z708HojDZ1+xXqZjWX6b7Uu6Pyt6inIcm55XFlXZv+yuTeheiR7btH5XmC8E91PWL+zHFREfs5qoLnT/WxrIEQ9TF03dN9Qcm76m11PJtbC9mB/n2T4ZLW2ofiCGUfvuX9M6jO80HlXrWGVl3nv57sg8jOLyHcZ70xLxEGZa2Hvklav5cvq2/S36ls2p/3e83pPnu+Ax3/QoHBCz6v7leoftm4nH8OL7Vdd/grnjZgpuv/HqkC8J3ulC3seTcH2YDV+E/78Rbond+Ep98n6ISC9vodv1VTyVHOUHoX0Vn35Xdj2cdSfP2n8Ahyajqo=
+   eJztwQENAAAAwqD3T20PBxQAAAAAAAAADwYeAAAB
   </data>
  </layer>
  <layer id="21" name="Item" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt10sOgCAMBUAu6BfvfxYvYKKI2tjMbIHkhUXTVwoAcGSMDpDMGh2AJkN0gMTMFu6aO94uj6XIo+c/MzDnAXhbjQ4A/NJ0ct6zx+rj12yN97/oFvpLux1dWQSl
+   eJztwQENAAAAwqD3T20PBxQAAAAAAAAADwYeAAAB
+  </data>
+ </layer>
+ <layer id="26" name="Ground_64" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20PBxQAAAAAAAAADwYeAAAB
   </data>
  </layer>
  <objectgroup id="16" name="Collision" visible="0">
@@ -1612,58 +1619,28 @@
   <object id="2020" x="1888" y="992" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="20" name="SpawnPoint">
-  <object id="2087" name="Sp" x="669.697" y="948.485"/>
+  <object id="2079" name="Sp" x="513" y="225.333" rotation="18.4699"/>
  </objectgroup>
  <objectgroup id="22" name="M_SpawnPoint">
-  <object id="2075" name="Frog_Sp" x="645.459" y="809.09">
+  <object id="2086" name="Skel_Sp" x="426.327" y="21.6677">
+   <properties>
+    <property name="Name" value="Skel"/>
+   </properties>
+  </object>
+  <object id="2087" name="Opsm_Sp" x="250.33" y="40.9997">
+   <properties>
+    <property name="Name" value="Opossum"/>
+   </properties>
+  </object>
+  <object id="2088" name="Frog_Sp" x="179.66" y="30.9993">
    <properties>
     <property name="Name" value="Frog"/>
    </properties>
   </object>
-  <object id="2076" name="Opsm_Sp" x="344.31" y="879.091">
-   <properties>
-    <property name="Name" value="Opossum"/>
-   </properties>
-  </object>
-  <object id="2077" name="Skel_Sp" x="1551.52" y="857.576">
-   <properties>
-    <property name="Name" value="Skel"/>
-   </properties>
-  </object>
-  <object id="2081" name="Opsm_Sp" x="787.879" y="618.182">
-   <properties>
-    <property name="Name" value="Opossum"/>
-   </properties>
-  </object>
-  <object id="2082" name="Skel_Sp" x="1163.64" y="327.273">
-   <properties>
-    <property name="Name" value="Skel"/>
-   </properties>
-  </object>
-  <object id="2083" name="Skel_Sp" x="536.364" y="339.394">
-   <properties>
-    <property name="Name" value="Skel"/>
-   </properties>
-  </object>
-  <object id="2084" name="Skel_Sp" x="1660.61" y="518.182">
-   <properties>
-    <property name="Name" value="Skel"/>
-   </properties>
-  </object>
-  <object id="2085" name="Bat_Sp" x="142.424" y="396.97">
-   <properties>
-    <property name="Name" value="Bat"/>
-   </properties>
-  </object>
-  <object id="2086" name="Bat_Sp" x="1821.21" y="418.182">
+  <object id="2089" name="Bat_Sp" x="315" y="35.3333">
    <properties>
     <property name="Name" value="Bat"/>
    </properties>
   </object>
  </objectgroup>
- <layer id="24" name="Ground_64" width="60" height="32">
-  <data encoding="base64" compression="zlib">
-   eJztzkERAAAIA6AFtX8OU+x8CAlI/pnrAAAAAAAAAEDBAo7mAF0=
-  </data>
- </layer>
 </map>

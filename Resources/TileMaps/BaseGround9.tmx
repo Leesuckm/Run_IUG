@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="2086">
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="25" nextobjectid="2086">
  <tileset firstgid="1" source="BaseMap.tsx"/>
- <tileset firstgid="65" source="Items.tsx"/>
+ <tileset firstgid="77" source="Items.tsx"/>
+ <tileset firstgid="85" source="BaseMap_64.tsx"/>
  <layer id="15" name="Ground" width="60" height="32">
   <data encoding="base64" compression="zlib">
    eJzlWGvKwzAMK4OvZ+kNvt7/ZKOwQGb8kBSXDSbwnzxkK7XdNsf2OzhexuB/MjsWzTOc1rpwcQ29ET8Tg7LOjlWciE+Pd4wNvefLIs4KTCw2HhTs2XuY9Sq505FzTB6sYs7nh/HzSYwYzq2OZzd7sj7i1W/Fr65ja3/o9TRntZLFhPZnNA4kFtasL8RnNF7pVfVkXMzzyLSwsV7I9H5DHauIzjTSi+jc6yVvvlmoNZpx2H7VFUtVZx72YP+51TUc8VZ6s5iV80Wg9CFvblj2Xp3zGTkjBXfxZr4i3ur7edXH3bnBIsrnClXOI3sRzqwfKOfH6q38Vv2q4lTOEDkP26+YWJS4GWM0seuy99G31FwnbH/uBvLckL0r9TJj6H0IHExvQvuO2rPQWL189ni9f8yOmut4fsw+5H/hLv9K/bC5Z30r95MM/x29TuWz+Wy/x+/y3dGj1DyzerN7i4yrmsvWr/SGKj6ryftfQPtoNG7nolg6niHLp9znsOioX/Us5r0XkH61ktvzGpb3gu0paL15uL4xht6/ZB2SJytxoD68emR5mfuNii+6c+ms1Y30Y3H8oD0BNAmmvg==
   </data>
  </layer>
+ <layer id="24" name="Ground_64" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztzkERAAAIA6AFtX8OU+x8CAlI/pnrAAAAAAAAAEDBAo7mAF0=
+  </data>
+ </layer>
  <layer id="21" name="Item" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt08kRgDAMBEGnxmnyj4gIeGFqLao7gNV81BoAvLOmA2ASx0e7fqyePR0w2JUOYHo9HQAAADza0gH8wlLw5jmkoqYbYWMCqA==
+   eJzt08kRgDAMBEEnyGnyj4UIeGFqLao7gNV81BoAvLOmA2ASx0e7fqyePR0w2JUOYHo9HQAAADza0gH8wlLw5jmkoqYbOQ0DIA==
   </data>
  </layer>
  <objectgroup id="16" name="Collision" visible="0">

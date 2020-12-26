@@ -178,7 +178,7 @@ void GameUI::GoldManager(Layer* layer, int _nGold) {
 	m_Gold_Sprite->addChild(m_Gold_Label, 5);
 }
 
-void GameUI::CreateKeyUi() {
+void GameUI::CreateKeyUi(_KeyState _keystate) {
 	m_RedKey_Sprite = Sprite::create("Images/ui/RedKey_ui.png");
 	m_RedKey_Sprite->setPosition(Vec2(m_layerSize.width - 150, m_layerSize.height - 50));
 	m_RedKey_Sprite->setOpacity(80);
@@ -196,6 +196,20 @@ void GameUI::CreateKeyUi() {
 	m_GreenKey_Sprite->setOpacity(80);
 	m_GreenKey_Sprite->setScale(0.8f);
 	m_layer->addChild(m_GreenKey_Sprite, 4);
+
+	switch (_keystate) {
+	case REDKEY:
+		m_RedKey_Sprite->setOpacity(255);
+		break;
+	case GREENKEY:
+		m_GreenKey_Sprite->setOpacity(255);
+		break;
+	case BLUEKEY:
+		m_BlueKey_Sprite->setOpacity(255);
+		break;
+	case NONE:
+		break;
+	}
 }
 
 void GameUI::MessageOutput(std::string comment) {
@@ -211,11 +225,11 @@ void GameUI::MessageOutput(std::string comment) {
 
 
 void GameUI::ItemShopMessage(std::string comment) {
-	m_ItemShopMessage = Label::createWithTTF(ttfConfig, comment);
-	m_ItemShopMessage->setScale(2.0f);
-	m_ItemShopMessage->setPosition(Vec2(240, 160));
-	m_ItemShopMessage->setColor(Color3B::YELLOW);
-	m_layer->addChild(m_ItemShopMessage, 5);
+	m_MessageComment = Label::createWithTTF(ttfConfig, comment);
+	m_MessageComment->setScale(2.0f);
+	m_MessageComment->setPosition(Vec2(240, 160));
+	m_MessageComment->setColor(Color3B::YELLOW);
+	m_layer->addChild(m_MessageComment, 5);
 
 	if (comment == "Not enough Gold.") {
 		//comment = nullptr;

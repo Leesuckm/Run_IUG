@@ -65,6 +65,7 @@ void Obstacle::CreateObstacle(Charactor_Data* _charactor_data) {
 				
 				gunObstacle->RecognizeSprite = Sprite::create("Images/Obstacle/GunTrap_Recognize.png");
 				gunObstacle->RecognizeSprite->setAnchorPoint(Vec2(0, 0.5));
+				gunObstacle->RecognizeSprite->setVisible(false);
 				gunObstacle->RecognizeSprite->setScaleX(2.0f);
 				gunObstacle->RecognizeSprite->setScaleY(0.5f);
 				m_layer->addChild(gunObstacle->RecognizeSprite, 4);
@@ -98,6 +99,7 @@ void Obstacle::CreateObstacle(Charactor_Data* _charactor_data) {
 
 				gunObstacle->RecognizeSprite = Sprite::create("Images/Obstacle/GunTrap_Recognize.png");
 				gunObstacle->RecognizeSprite->setAnchorPoint(Vec2(1, 0.5));
+				gunObstacle->RecognizeSprite->setVisible(false);
 				gunObstacle->RecognizeSprite->setScaleX(2.0f);
 				gunObstacle->RecognizeSprite->setScaleY(0.5f);
 				m_layer->addChild(gunObstacle->RecognizeSprite, 4);
@@ -143,11 +145,11 @@ Charactor_Data* Obstacle::FallingBladeControl(int contact, float dt, float* _del
 			if (contact > 0) {
 				b2PrismaticJoint* prismatic = (b2PrismaticJoint*)obstacle->BaseBody->GetJointList()->joint;
 				prismatic->SetMotorSpeed(-10);
-				m_fObstacleDelayTime = 5;
+				m_fObstacleDelayTime = 10;
 			}
 			else if (contact < 1 && (m_fObstacleDelayTime -= dt) <= 0) {
 			b2PrismaticJoint* prismatic = (b2PrismaticJoint*)obstacle->BaseBody->GetJointList()->joint;
-			prismatic->SetMotorSpeed(20);
+			prismatic->SetMotorSpeed(30);
 			}
 
 			m_fLopelength = ((obstacle->BaseBody->GetPosition().y * 32) - (obstacle->BladeBody->GetPosition().y * 32));
@@ -426,7 +428,12 @@ void Obstacle::LavaEruption(float dt) {
 		m_Lava_Spriteb->setPosition(m_oldLava_pos + Vec2(960, 5));
 		m_oldLava_pos = m_Lava_Sprite->getPosition();
 
-		m_fLava_Eruptiontime = 1.0f;
+		if (m_Charactor_data->status.b_LavaDebuff) {
+			m_fLava_Eruptiontime = 0.5f;
+		}
+		else {
+			m_fLava_Eruptiontime = 1.0f;
+		}		
 	}
 }
 

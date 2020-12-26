@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="2086">
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="25" nextobjectid="2086">
  <tileset firstgid="1" source="BaseMap.tsx"/>
- <tileset firstgid="65" source="Items.tsx"/>
+ <tileset firstgid="77" source="Items.tsx"/>
+ <tileset firstgid="85" source="BaseMap_64.tsx"/>
  <layer id="15" name="Ground" width="60" height="32">
   <data encoding="base64" compression="zlib">
    eJzlWFuKwzAMDIXtWXKD9P4nK4EYjJiXnOZrB8yCHUkzliy7u28YxwOD+e/A+VXYr7ESp6517Q8xj/yt7s+MqtflQfFk+IWOTgwFpjfR3Mkp41zXlQ+3XyzGDFTPd2qWcXFalf+0ByS5YHqrL4eV/lG1JnrRfPLtwNCrYv+iTyS5uWPLclRtZ72ottKac1jdrySHrp7nuc59NGwdn8Qu+T7NKVtH8ZletUcrsTpnOol9js81nuhXd/sQs3+D76ovxuezYc2Mw4nOfYSQ9BrkN60XxcnlGdmp90Y6Um0MST2wOZXjGuMAehEHh865VtpZ3Va8rr9Iq+Ov7qN57r1hJHlINMwcXY5WzgXKbyc/zL/qH92egLi47xy/7v2L4tU51T+YrePczSWLs6qXxWZ6nV0aIzmnqi6Q3temsdqXWI2n6NYzsqv9Su17uuZymt4hKEbln/Bg+U34Oj7Jfqy8AztnANkNuPdzt+Zc/BNzflUsdX7/gH91hgbS9yS7fxlcXGaTnHvkP/Xn9Kb1xuzYWsov5TTbqVjq9xHjlPJM9wv1oZWe4fb6hOpX9ZxVToivqrtO3XT7BntL1xjqPmJ9pQLVE+Kd1qSrURb/A9YrJ6V31lxj1jdJN1fp3jH/q+f47u/frub0XCpb9TvQxUr7c5fzau2is3B3zEj/X6fWu3fzE3Bv/oH9H44vY8zF6Q==
@@ -9,7 +10,7 @@
  </layer>
  <layer id="21" name="Item" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt18kNgDAMBMC0xhn6r4gvTz9iDMpMAeuVIstKawBQY6kuAC+6kvPX5PyRsnd/T84HYF5/urez8CY8HYWz/W8h5ku7EunS01sQsVUXmMBZXYDhbi3JA60=
+   eJzt18kNgDAMBMA0yBn6r4UvTz9iDMpMAeuVIstKawBQY6kuAC+6kvPX5PyRsnd/T84HYF5/urez8CY8HYWz/W8h5ku7EunS01sQsVUXmMBZXYDhbuTCBFU=
   </data>
  </layer>
  <objectgroup id="16" name="Collision" visible="0">
@@ -1665,4 +1666,9 @@
    </properties>
   </object>
  </objectgroup>
+ <layer id="24" name="Ground_64" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztzgEJAAAMA6AFff8cjzEYmsCENdcOAAAAAAAAABUPPmYAXQ==
+  </data>
+ </layer>
 </map>

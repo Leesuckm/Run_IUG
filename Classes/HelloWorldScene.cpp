@@ -55,7 +55,7 @@ const std::string SEF_HIT_FAILED_PATH = "Sounds/Hit_Failed_EF.mp3";
 #define JUMPPOW 10
 #define ATTACKDELAY 5
 #define PICKAXEDAMAGE 9;
-#define BOMBDAMAGE 27
+#define BOMBDAMAGE 5
 #define SWORDDAMAGE 5
 #define GUNDAMAGE 2
 #define DEGTORAD 3.14 / 180
@@ -537,7 +537,7 @@ void HelloWorld::tick(float dt) {
 
 				int obj_hp = body->GetHp();
 				if (obj_hp > 0) {
-					obj_hp = obj_hp - BOMBDAMAGE;
+					obj_hp = obj_hp - BOMBDAMAGE * 6;
 					body->SetHp(obj_hp);
 				}
 
@@ -547,7 +547,7 @@ void HelloWorld::tick(float dt) {
 
 	}
 
-	if (m_fcleantime > 1) {
+	if (m_fcleantime > 0.8) {
 		m_fcleantime = 0;
 		if (m_Explosion->getChips_size() != 0) {
 			m_Explosion->cleanChips(_world);
@@ -831,12 +831,37 @@ void HelloWorld::tick(float dt) {
 
 			if (x < 0.5 && y < 0.5 && iter->power == true) {
 				iter->power = false;
+				m_fCharactorPainDelay = 1.5f;
+				Player->setMoveState(MS_PAIN);
+
+				if (m_bTakePickaxe) {
+					KeyAction(Player->getMoveState(), PAIN, "Pickaxe");
+				}
+				else if (m_bTakeSword) {
+					KeyAction(Player->getMoveState(), PAIN, "Sword");
+				}
+				else if (m_bTakeGun) {
+					KeyAction(Player->getMoveState(), PAIN, "Gun");
+				}
+				else {
+					KeyAction(Player->getMoveState(), PAIN, "");
+				}
+
+				m_fDelayTime = 2;
+
+				if (g_bViewing)
+					Player->getCharactorBody()->ApplyLinearImpulse(b2Vec2(-2, 3), Player->getCharactorBody()->GetWorldCenter(), true);
+				else if (!g_bViewing)
+					Player->getCharactorBody()->ApplyLinearImpulse(b2Vec2(2, 3), Player->getCharactorBody()->GetWorldCenter(), true);
+
+				m_fdt = 0;
+
 				g_CharactorData.n_Hp_Count -= BOMBDAMAGE;
 				//_world->DestroyBody(chip_body);
 				//m_Explosion->getChips().erase(iter++);
 				m_GameUi->Heartmanager(&g_CharactorData);
 				if (Player->getCharactorBody()->GetHp() <= 0) {
-					this->clearFloor();
+					//this->clearFloor();
 					this->GameOver(this);
 				}
 			}
@@ -1258,18 +1283,20 @@ void HelloWorld::tick(float dt) {
 			if (g_CharactorData.StageNumber == SHELTER || g_CharactorData.bStage_blind) {
 				if (category == BLOCK_CATEGORY || category == 0x0010 || category == POTION_CATEGORY || category == OBSTACLE_CATEGORY || category == LADDER_CATEGORY || category == BOMB_CATEGORY || category == GUN_CATEGORY || category == SWORD_CATEGORY || category == PICKAXE_CATEGORY ||
 					category == GBLOCK_CATEGORY || category == GOLD_CATEGORY || category == LLADDER_CATEGORY || category == HARDBLOCK_CATEGORY || category == SHOP_CATEGORY || category == REDKEY_CATEGORY || category == BLUEKEY_CATEGORY || category == GREENKEY_CATEGORY ||
-					category == REDCHEST_CATEGORY || category == BLUECHEST_CATEGORY || category == GREENCHEST_CATEGORY || category == BLADEBLOCK_CATEGORY || category == FALLBLADE_CATEGORY|| category == LGUNTRAP_CATEGORY || category == RGUNTRAP_CATEGORY) {
+					category == REDCHEST_CATEGORY || category == BLUECHEST_CATEGORY || category == GREENCHEST_CATEGORY || category == BLADEBLOCK_CATEGORY || category == FALLBLADE_CATEGORY|| category == LGUNTRAP_CATEGORY || category == RGUNTRAP_CATEGORY || category == LBLOCK_CATEGORY ||
+					category == BRIDGE_CATEGORY || category == LBRIDGE_CATEGORY || category == BIGBLOCK_CATEGORY || category == BIGLBLOCK_CATEGORY || category == BIGHBLOCK_CATEGORY || category == LHARDBLOCK_CATEGORY) {
 					EffectSprite* ES = static_cast<EffectSprite*>(b->GetUserData());
 					ES->setCharactorPos(Vec2(Player->getCharactorBody()->GetPosition().x * 32, Player->getCharactorBody()->GetPosition().y * 32));
 					//Sprite* Sp = static_cast<Sprite*>(b->GetUserData());
 					//Sp->setVisible(false);
 				}
+				if (category == 0x0006) {
+					m_EFFSprite = static_cast<EffectSprite*>(b->GetUserData());
+					m_EFFSprite->setCharactorPos(Vec2(m_EFFSprite->getPosition()));
+				}
 			}
 			
-			if (category == 0x0006) {
-				m_EFFSprite = static_cast<EffectSprite*>(b->GetUserData());
-				m_EFFSprite->setCharactorPos(Vec2(m_EFFSprite->getPosition()));
-			}
+			
 
 			// 캐릭터 부속 body 및 body의 userdata는 componentQ에서 제거해주기 때문에 기존body의 destroyQ에는 올라가지 않는다.
 			if (category == COMPONENT_CATEGORY) {
@@ -1281,11 +1308,23 @@ void HelloWorld::tick(float dt) {
 					hp--;
 					b->SetHp(hp);
 
-					if (category == CHARACTOR_CATEGORY) {
-						g_CharactorData.n_Hp_Count--;
-						m_clayer->removeChild(m_HeartLabel, true);
+					if (category == CHARACTOR_CATEGORY && (m_fCharactorPainDelay -= dt) <= 0) {
+						m_fCharactorPainDelay = 2.0f;
 
+						g_CharactorData.n_Hp_Count = g_CharactorData.n_Hp_Count - 2;
+						m_clayer->removeChild(m_HeartLabel, true);
+						
 						m_GameUi->Heartmanager(&g_CharactorData);
+						
+						ParticleSystemQuad* Burn_Collision;
+						Burn_Collision = ParticleSystemQuad::create("Images/effects/Burn_Collision.plist");
+						Burn_Collision->setPosition(Vec2(Player->getCharactorBody()->GetPosition().x * PTMRATIO, Player->getCharactorBody()->GetPosition().y * PTMRATIO));
+						Burn_Collision->setScale(0.3f);
+						Burn_Collision->setAutoRemoveOnFinish(true);
+						wlayer->addChild(Burn_Collision, 100);
+						if (nbefore_hp != g_CharactorData.n_Hp_Count) {
+							this->CharactorPainAction();
+						}
 					}
 					else if (category == BLOCK_CATEGORY && b->GetBroken()) {
 						b->SetBroken(false);
@@ -2340,10 +2379,8 @@ void HelloWorld::CreateUI() {
 	m_ItemShop->CreateShop(&Map_Body, m_GameUi);
 	m_GameUi->CharactorStateSprite();
 	m_GameUi->CreateGoldUi(g_CharactorData.n_Gold_Count);
-	m_GameUi->CreateKeyUi();
+	m_GameUi->CreateKeyUi(g_CharactorData.key);
 	m_GameUi->CreatePauseButton();
-
-	
 }
 
 void HelloWorld::CreateBt() {
@@ -2415,7 +2452,7 @@ void HelloWorld::CreateMap() {
 		case STAGE_1_3:
 			
 		
-			num = rand() % 8 + 1;
+			num = rand() % 17 + 1;
 			break;
 		case STAGE_2_1:
 		case STAGE_2_2:
@@ -2443,15 +2480,17 @@ void HelloWorld::CreateMap() {
 			break;
 		}
 	}
-	g_CharactorData.StageNumber = STAGE_3_1;
-	//g_CharactorData.StageNumber = BOSS;
+	//g_CharactorData.StageNumber = STAGE_3_1;
+	g_CharactorData.StageNumber = BOSS;
 	if (g_CharactorData.StageNumber == SHELTER) {
 		TMXPath = "TileMaps/Shelter_Ground.tmx";
 	}
 	else {
-		TMXPath = "TileMaps/BaseGround17.tmx";
+		TMXPath = "TileMaps/BaseGround_Boss.tmx";
+		//char str[100];
 		//std::string sNum = std::to_string(num);
-		//TMXPath[19] = *sNum.c_str();
+		//sprintf(str, "TileMaps/BaseGround%d.tmx", 17);
+		//TMXPath = str;
 	}
 
 	map = TMXTiledMap::create(TMXPath);
@@ -2472,7 +2511,7 @@ void HelloWorld::CreateMap() {
 	
 
 	if (g_CharactorData.StageNumber == SHELTER) {
-		m_PlayerLight = Map_Body.SpriteChange(wlayer, _world);
+		m_PlayerLight = Map_Body.SpriteChange(wlayer, _world); // EffectSprite
 		BackGroundESp = EffectSprite::create("Images/Background/Game_Loading_Background_.png");
 		BackGroundESp->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
 		BackGroundESp->setPosition(Vec2::ZERO);
@@ -2496,13 +2535,6 @@ void HelloWorld::CreateMap() {
 		RepeatForever* rep = RepeatForever::create(animate);
 
 		m_PortalSp->runAction(rep);
-
-		/*
-		ParticleSystem* particle_Effect = ParticleSystemQuad::create("Images/effects/Stage_Portal.plist");
-		particle_Effect->setPosition(Vec2(1600, 50));
-		particle_Effect->setScale(0.2f);
-		//Red_Up->setDuration(2.0f);
-		wlayer->addChild(particle_Effect, 100);*/
 	}
 	else if (g_CharactorData.StageNumber != SHELTER && g_CharactorData.StageNumber != BOSS && !g_CharactorData.bStage_blind) {
 		Map_Body.UserDataChange(wlayer, _world); // Sprite
@@ -2511,6 +2543,7 @@ void HelloWorld::CreateMap() {
 			BackGroundSp = Sprite::create("Images/Background/Normal_Background.png");
 			BackGroundSp->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
 			BackGroundSp->setPosition(Vec2::ZERO);
+			//BackGroundSp->setVisible(false);
 			wlayer->addChild(BackGroundSp);
 		}
 		else if (g_CharactorData.StageNumber >= STAGE_2_1 && g_CharactorData.StageNumber <= STAGE_2_3) {
@@ -2580,6 +2613,8 @@ void HelloWorld::CreateMap() {
 		//m_clayer->setScale(0.7f);
 
 	wlayer->addChild(map);
+	//wlayer->setVisible(false);
+	//m_clayer->setVisible(false);
 }
 
 void HelloWorld::CreateCharactor() {
@@ -2609,7 +2644,7 @@ void HelloWorld::CreateCharactor() {
 
 	auto texture = Director::getInstance()->getTextureCache()->addImage("Images/Recognize.png");
 	m_RecognizeSp = EffectSprite::create("Images/Recognize.png");
-	//m_RecognizeSp->setAnchorPoint(Vec2::ZERO);
+	m_RecognizeSp->setVisible(false);
 	m_RecognizeSp->setScale(1.5);
 	wlayer->addChild(m_RecognizeSp, 3);
 
@@ -2947,10 +2982,10 @@ void HelloWorld::doLadderequip(Ref* pSender) {
 }
 
 void HelloWorld::doThrowBomb(Ref* pSender) {
-	//this->clearFloor();
+	this->clearFloor();
 	// Stage를 이동하면서 Scene을 바꾸기 전 한번 Frame을 거쳐 Scene 전환이 이루어지기 때문에 Scene 전환 중 이라면 Frame 진행을 아예 할 수 없도록 막기 위해.
-	//m_bChangeStage = true; 	
-	
+	m_bChangeStage = true; 	
+	/*
 	g_isThrow = false;
 	m_bCan_Move = true;
 	
@@ -2979,7 +3014,7 @@ void HelloWorld::doThrowBomb(Ref* pSender) {
 		m_Explosion->CreateExplosion(bomb_body, 3, wlayer);
 
 		m_fpowertime = 0;
-	}
+	}*/
 }
 
 void HelloWorld::doPickup(Ref* pSender) {

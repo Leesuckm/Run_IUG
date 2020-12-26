@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="2090">
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="27" nextobjectid="2090">
  <tileset firstgid="1" source="BaseMap.tsx"/>
- <tileset firstgid="65" source="Items.tsx"/>
- <tileset firstgid="73" source="Treasure_chests.tsx"/>
- <layer id="15" name="Ground" width="60" height="32">
-  <data encoding="base64" compression="zlib">
-   eJztzzEKACAMBMG0afL/59paKyjGGbgykK1YVxu3t9S0ldvX1OYAAAAAOCtvP3BQht7O9Pamtze9vf3a+9MGNZEEBQ==
-  </data>
- </layer>
+ <tileset firstgid="77" source="Items.tsx"/>
+ <tileset firstgid="85" source="Treasure_chests.tsx"/>
+ <tileset firstgid="88" source="BaseMap_64.tsx"/>
  <layer id="23" name="Treasure_chest" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJztzjERADAMxLDQa8OfTyj8NWOl2YOrAAAAAAAAAHZO2N2w69eRzw1O/wDf
+   eJztzkEJADAMBLCa7ObfySz0MTgKiYJUAQAAwD83HQAYOukAwFCnAwCs8gAl1QED
+  </data>
+ </layer>
+ <layer id="15" name="Ground" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt1DEKACAMBEFbm/z/ubaCjSRCEGZgy2svRl4Utl1iK7P9TRQDAADgNC8D6OavgF/4K4B3FrvYAkM=
   </data>
  </layer>
  <layer id="21" name="Item" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJztzqENACAAwLD9Rgj/f4TBEiSmNbOrGgEAAAAAAADcrdP59YKXDd0kANA=
+   eJztzsEJACAMBLDbUFD3n8UVCn0UIZkgSbICAAAAPXs6AFB0pwMARWc6AMCXHv6hAUk=
+  </data>
+ </layer>
+ <layer id="26" name="Ground_64" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt1LkNACAMBEEqdf9lEJFDwnPMJE4trezWWFGnFwAAAIDNanLyDs3y/drYv2LQOldKW/8qj2Z3m725lNkBM3kSuw==
   </data>
  </layer>
  <objectgroup id="16" name="Collision" visible="0">

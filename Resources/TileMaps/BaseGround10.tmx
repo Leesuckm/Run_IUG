@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="2098">
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="25" nextobjectid="2098">
  <tileset firstgid="1" source="BaseMap.tsx"/>
- <tileset firstgid="65" source="Items.tsx"/>
+ <tileset firstgid="77" source="Items.tsx"/>
+ <tileset firstgid="85" source="BaseMap_64.tsx"/>
  <layer id="15" name="Ground" width="60" height="32">
   <data encoding="base64" compression="zlib">
    eJzlWEGOAzEIi3roW+YHU2n//6+q0o7EImxsMtpLkXJoggEHyCQ91vfI8TsuOcNYYL5av0tUH1U8yrj4Ij8O/25E7B08MkaxVeUX6Xf2XmEw7KQ2WL67/YuS+Wb7XW0hzjt83b7Z5avWUYV5BZ1Ol60554Vi7xI3v2qcnbD+QP7zGrL3IDbyecXic84txIPFq/aAep5Ve9edz6qPSt/BO3URz4l8XjAM44v2UzmPlHh3uN7J91XgkJ/OB/Pr8H0mfObKYmH9e2EZxvHTzal94fYrw2a+bJ9RXavxKVw6O50Nh+90z5C4dk5hTfHDcArfSS3lWKr5Kl7HRrdWCbtfVfFMeKHcIl0lp0yeZE3hu4rfirC+ZLoOZ7fmnPwyf7vxT/g6fXbdMdX+7Xw6MSBdxgWtoftPhT/X3/x22I6Tw3mS9zyH7gDMB/v+ujlSZFJDq9CJnFX8R5T3wiQuJV8sRwiH7OzyVfOlxletOXwR3onnI5GvYqua3+1JdDft/DiC+Cq4/D1X+SKdCV9HIibX8wPYZZwmA9m8k2tlv/v+roX9THkiO51dRxC2+3/yP+RurtFWftMr/8cqcVZrbsxuXUT5CSPa6/g6Pqd17urv5jfKne/fnT6eYNi7D+GOLxxvJtDQuQ==
@@ -9,7 +10,7 @@
  </layer>
  <layer id="21" name="Item" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt18sJgEAQREFT84Oaf0Se9SRoMw5WBdD72MPCDgMAAHzXVB1ww1gd8FCHO4Y/S7wx180lcAZ5W3UA0M4a3p/D+2/r1gvkdf/fc7ZXBxQ6AKX9Ayg=
+   eJzt18sJgEAQREET9IOafyye9SRoMw5WBdD72MPCDgMAAHzXVB1ww1gd8FCHO4Y/S7wx180lcAZ5W3UA0M4a3p/D+2/r1gvkdf/fc7ZXBxQ6AAtGA7g=
   </data>
  </layer>
  <objectgroup id="16" name="Collision" visible="0">
@@ -1613,6 +1614,11 @@
  <objectgroup id="20" name="SpawnPoint">
   <object id="2075" name="Sp" x="951.515" y="872.727"/>
  </objectgroup>
+ <layer id="24" name="Ground_64" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztzkERAAAIA6AFtX8OU+x8CAlI/pnrAAAAAAAAAEDBAo7mAF0=
+  </data>
+ </layer>
  <objectgroup id="22" name="M_SpawnPoint">
   <object id="2084" name="Frog_Sp" x="1587.88" y="821.212">
    <properties>

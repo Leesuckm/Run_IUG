@@ -206,7 +206,7 @@ void BuffManager::BuffInSlot(Charactor_Data* _charactor_data, b2Vec2 _position) 
 					_charactor_data->status.f_power = 0;
 					break;
 				case DBS_LAVAUP:
-					_charactor_data->status.b_LavaDebuff = false;
+					_charactor_data->status.b_LavaDebuff = true;
 					break;
 				}
 

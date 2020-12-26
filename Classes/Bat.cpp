@@ -109,6 +109,7 @@ void Bat::RecognizeMonster(b2World* world, Layer* layer) {
 
 	Sprite* m_RecognizeSprite = Sprite::createWithTexture(m_texture, Rect(0, 0, 150, 37));
 	m_RecognizeSprite->setAnchorPoint(Vec2(0.5, 1));
+	m_RecognizeSprite->setVisible(false);
 	m_RecognizeSprite->setScaleX(2.0f);
 	m_RecognizeSprite->setScaleY(5.0f);
 	layer->addChild(m_RecognizeSprite, 3);

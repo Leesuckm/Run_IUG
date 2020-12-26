@@ -78,16 +78,14 @@ void EffectSprite::setEffect(LightEffect *effect, const std::string &normalMapFi
 void EffectSprite::draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags)
 {
 	// 캐릭터가 가까이 있을때만 렌더링
-		//cocos2d::log("x = %f, y = %f",this->getPosition().x, this->getPosition().y);
 	if (m_Pos.x - NORMAL_DRAW_WIDTH < this->getPosition().x && m_Pos.x + NORMAL_DRAW_WIDTH > this->getPosition().x &&
 		m_Pos.y - 130 < this->getPosition().y && m_Pos.y + 130 > this->getPosition().y) {
-		//cocos2d::log("this.x = %f this.y = %f", this->getPosition().x, this->getPosition().y);
+		
 		if (_effect != nullptr)
 		{
 			_effect->prepareForRender(this, _normalmap);
 		}
 		Sprite::draw(renderer, transform, flags);
-		//if()
 		renderer->render();
 	}
 }

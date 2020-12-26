@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="2115">
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="25" nextobjectid="2115">
  <tileset firstgid="1" source="BaseMap.tsx"/>
- <tileset firstgid="65" source="Items.tsx"/>
+ <tileset firstgid="77" source="Items.tsx"/>
+ <tileset firstgid="85" source="BaseMap_64.tsx"/>
  <layer id="15" name="Ground" width="60" height="32">
   <data encoding="base64" compression="zlib">
    eJzlWVlKBDEUHAb0LHMDvf/JZMBgKF5t6f6zIKDJ2ypv6Yivxx++YKVAvUa/1VXyTvf1uxJ7brWYdO/2hbIT30kutefkWMxtnlhumdzC4stkE38Ln2Fcic0mx8n9LST1zOJK4rwDiR0mg3Gq/KKeq8VJ7q67aOqI6b2h+jfptZYPO38WdpN6ZmfIV9m7UqcNB8WnvQOX36RfGzAua31vy9UTk1Wxuf5V8bVIcqE4uJyiH8ZxR9q/Lm6cIUlPJ/vpfad3weZzE8e0MGcqviT+pG6TGlTf3yS+qfZ2rqfxTzqPxzXOU/8ym5M/1mNJLypM/Jo7YhzeYN8jpu/6RMV1ynWSYXvunqb5jL5dLbI6ZzymWJvV2tih3hvqrl19JvfD6jypg9QXYuer8oT700xicbg99HPC1f2+FvJVcexQfNucpbMI5U/OGd/9/Y5nb7j8Nn2nML1j0AfzO+1N9XwyP1wfT8CYmIy6M3evuMfek0qH7Se1re6nmTssDqezf49OZo+Tmc7bmbQw/Z2v7E8+kvzu9tTvu880nivLxTftNXyn2NszlJnqvV3Ph/e3wOZVEmvKp+2TxF6adzxz/Yvz6Gpeld4V3TQGV88nPXQ6l5jOh9CZ3gDKb8pXoZ1RDdxdr3cP/sx0mv8f3QFl131vmA3kqzhj/zqeaUwprszlxRUX2t/x+ofrB+u8ulc=
   </data>
  </layer>
+ <layer id="24" name="Ground_64" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztzkERAAAIA6AFtX8OU+x8CAlI/pnrAAAAAAAAAEDBAo7mAF0=
+  </data>
+ </layer>
  <layer id="21" name="Item" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt1rkNwDAMxVCv5tg59p/IrYoUaQxCEd8EbAT91iRldtEBhR10gPTBQwdIG3Q6QErgpAOE2L1P3b+5xH85sYp8Bh0Q/O3m3HCSJNpNBxTwtqXcAIwFDpQD8Q==
+   eJzt1rkNwDAMxVAv6Ng59p/FrYoUaQxCEd8EbAT91iRldtEBhR10gPTBQwdIG3Q6QErgpAOE2L1P3b+5xH85sYp8Bh0Q/O3m3HCSJNpNBxTwtqXcAIwFSosEpQ==
   </data>
  </layer>
  <objectgroup id="16" name="Collision" visible="0">

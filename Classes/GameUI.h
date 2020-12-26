@@ -89,7 +89,7 @@ public:
 	Sprite* CreateGoldUi(int _nGold);
 	void GoldManager(Layer* layer, int _nGold);
 
-	void CreateKeyUi();
+	void CreateKeyUi(_KeyState _keystate);
 
 	void CharactorStateSprite();
 	Sprite* CreateStateSprite(std::string sPath, Vec2 pos, Size size);

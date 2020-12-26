@@ -1620,7 +1620,7 @@
   <object id="2020" x="1888" y="992" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="20" name="SpawnPoint">
-  <object id="2092" name="Sp" x="1372.67" y="890"/>
+  <object id="2092" name="Sp" x="1503.34" y="887.334"/>
  </objectgroup>
  <objectgroup id="22" name="M_SpawnPoint">
   <object id="2056" name="Bat_Sp" x="1249.33" y="237.333">
@@ -1646,7 +1646,7 @@
  </objectgroup>
  <layer id="23" name="Ground_64" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJztzgENAAAIA6C3tH8TY1w3SEACAAAAAAAAP0w7AMctL0sAWA==
+   eJztzkERAAAIA6D1tH8PU+x8CAlI/pnrAAAAAAAAAEDBAnHaAFw=
   </data>
  </layer>
  <layer id="15" name="Ground" width="60" height="32">

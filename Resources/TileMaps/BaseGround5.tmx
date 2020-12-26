@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="23" nextobjectid="2087">
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="2087">
  <tileset firstgid="1" source="BaseMap.tsx"/>
- <tileset firstgid="65" source="Items.tsx"/>
+ <tileset firstgid="77" source="Items.tsx"/>
+ <tileset firstgid="85" source="BaseMap_64.tsx"/>
  <layer id="15" name="Ground" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJzlWdtqwzAMDYUN+lLy/187ChNoms5FdvLUA2aLbUlH0SVO+jw+B8/f8caLjKvA9O7ay7LIh+wv4jTloOTq/ElsOraVbJav8XV0OHBlzzSm9uoeJf/+v8tnxTnv+zb5dLpVXK/yM++p+Tz1eaXe7sodp37C3wdYd21MY4PWmFzl0V0re+FvF1cke0fMERCv1Xur+tXj+A/mn5MXCkr3tL4z3H414cXkp/nRySI4PFS/YnryOtvv8EBrE19YDQZy/aI9U907Nb6SEwisfpENByyeqwPxcHndUb/dPiffVAw7zvUc1iF6K+Pc1W+Fqt3KEWEltwNn+pvn8/nOiY/TrzqulVPc+8oTwa2/QNU/reUAez9yuL6Ov7nG8q3KKlvTfGYIXV1/PpprpudM14jPai/qYjz1N+tl/ro5wuKr6lPZXclZZgM9j7r96N1P9SGn3pwe3vFHQPLsecT8UXumUP45ee9wcPuz0u32Waaru0b7pqj9KoC+rXR2WY2xe+HcJ1eXg65fxXz11+W3iy/AcVrH7PyR4xvz6vvZDqaxdPS5uVXzOa/X+CL9E58UPweuf9WHPFC/Wu1ZSPaqOlDxqzlaY4d+X+i+4zhcnHnme33Gu/ma340cf1f6k4rrVecThqkedJ509bk8rtQ9kXf9Zb8b7MDVuxv7ul771SeNH+HoMNA=
+   eJzlWdtqwzAMDYUN+lLy/19bChOoms5FTtKXHjBbbEs6ii5x0vv2Pbj/jRceZJwFpveovSyLfMj+Ik5TDkquzu/EpmNbyWb5Gl9HhwNXdk9jaq/uUfKv/7t8Vpzzvl+TT6dbxfUsP/Oems9Tn1fq7arcceon/L2BddfGNDZojclVHt21shf+dnFFslfEHAHxWr23ql/dtv9g/jl5oaB0T+s7w+1XE15MfpofnSyCw0P1K6Ynr7P9Dg+0NvGF1WAg1y/aM9V9pMZXcgKB1S+y4YDFc3UgHi6vK+q32+fkm4phx7mewzpEb2Wcu/qtULVbOSKs5HZgT3/zfD7fOfFx+lXHtXKKe195Irj1F6j6p7UcYO9HDtfH9p5rLN+qrLI1zWeG0NX15625Znr2dI34rPaiLsZTf7Ne5q+bIyy+qj6V3ZWcZTbQ86jbj979VB9y6s3p4R1/BCTPnkfMH7VnCuWfk/cOB7c/K91un2W6umu0b4rarwLo20pnl9UYuxfOfXJ1Oej6VcxXf11+R/EDOE7rmJ0/cnxjXn0/O4JpLB19bm7VfM7rNb5I/8Qnxc+B61/1IQ/Ur1Z7FpI9qw5U/GqO1tih3xe67zgOF2ee+V6f8W6+5ncjx9+V/qTietb5hGGqB50nXX0ujzN1T+Rdf9nvBp/A0djX9dqvvmk8AdkwMMo=
   </data>
  </layer>
  <layer id="21" name="Item" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt2EsKgDAMBcBeTbHa+5/IbQnYlbYRZlYpZPGgP0gpADnV1QFgktln3d36tz2sr0Hv9mUQgMCbAwBjravPh57s/+mxOkBC2fcMILs46+IdN7qDA3E=
+   eJzt2EsKgDAMBcBeULHa+5/FbQnYlbYRZlYpZPGgP0gpADnV1QFgktln3d36tz2sr0Hv9mUQgMCbAwBjravPh57s/+mxOkBC2fcMILs46+IdN35KBA0=
+  </data>
+ </layer>
+ <layer id="23" name="Ground_64" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztzjEBAAAIA6D1tH8P18HDBxKQcDXfAQAAAAAAAIBaVWoAXA==
   </data>
  </layer>
  <objectgroup id="16" name="Collision" visible="0">
@@ -1634,12 +1640,12 @@
     <property name="Name" value="Frog"/>
    </properties>
   </object>
-  <object id="2075" name="Skel_Sp" x="510" y="950">
+  <object id="2075" name="Skel_Sp" x="378" y="896">
    <properties>
     <property name="Name" value="Skel"/>
    </properties>
   </object>
-  <object id="2076" name="Skel_Sp" x="932" y="946">
+  <object id="2076" name="Skel_Sp" x="1078" y="846">
    <properties>
     <property name="Name" value="Skel"/>
    </properties>

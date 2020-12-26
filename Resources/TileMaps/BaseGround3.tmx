@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="23" nextobjectid="2086">
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="2086">
  <tileset firstgid="1" source="BaseMap.tsx"/>
- <tileset firstgid="65" source="Items.tsx"/>
+ <tileset firstgid="77" source="Items.tsx"/>
+ <tileset firstgid="85" source="BaseMap_64.tsx"/>
  <layer id="15" name="Ground" width="60" height="32">
   <data encoding="base64" compression="zlib">
    eJzlWNGKAzEIlMIV9qX0/7+2FDYg05lRs72XO0HYNUZnEs02PSLiEX9bHqcepz6SKl+nk7zseSqTvBnn4ov2XT6d3IijM4f5MjvakEfmO8HgcFU+Dm81x+VVPHMMtb8T6eQLMc7mX62pm8nF+pfhZFJx2vVVMq1/NsfxxVpw2Dv5VQ9OYnfOzqXPU7Oo85nx3ak1FYeNK14utrJlvplz93ze5bnbF534Ks56fhI/5MvmXeXJMFbn1TT2LXj8Sf+6eQpLd1z17SRnNZ/lRb6r3qucU0wOA+vrqai1nPJlOKp6U/aqp7t+d5O3Oh/ZeZU5I46KC5PJ+nR6t1ozfM7+rH8zXzwHWO4KH9rwuYo5WefqGflGfGJy/cCk0wuO22+cU+u94osYplx3a6DLuXMWZJv6HkV84q7yKq7TOAqv81d4r/B19cdwOHX4J33e2dM89q39Rcz4W65b1+iHdzs2l8Vg42/Z5ctiP0E7fKv67daW66U8VvGd1CWO3Qp/xrni43rT4V7S5cvwMGyd3qpqDvFXYyy+8pvc96v+U3a3ty7eHd4rjJ2eq+6DaFfYviWdHur0l1oL9XtjWm/Mfif2bq27XkTF+00kO+bIfBUXldtx7ewBxndxlrA1ZN8E/B+H8e2ub5cf4zOpkSvKvocRn/2r7vud9XDvjJMSNkflVt96dYdXfKv/OCZr/ZYfw89xCvPu9oaNMb7Md8pvVx33ydw1n3E+/qG+AAFdNJQ=
   </data>
  </layer>
+ <layer id="23" name="Ground_64" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztzjENAAAIA7D5xL8PTCzhoFXQ5Le5DgAAAAAAAACULG2WAFw=
+  </data>
+ </layer>
  <layer id="21" name="Item" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt2DEOwCAIhWGuVm3V+5/IpUPHNil5QP5vYfQlEA2aAfjbpQ4QUBOcSR8AoB7FewLA7FQHQHldHQBhzLt+2ecOjyCQW+oAD8xYDG/uBXqVB7sdMuPf2cdQByhmA2pfBD8=
+   eJzt2DEOwCAIhWEuWG3V+5/FpUPHNil5QP5vYfQlEA2aAfjbpQ4QUBOcSR8AoB7FewLA7FQHQHldHQBhzLt+2ecOjyCQW+oAD8xYDG/uBXqVB7sdMuPf2cdQByhmA9qmBP8=
   </data>
  </layer>
  <objectgroup id="16" name="Collision" visible="0">
@@ -1611,7 +1617,7 @@
   <object id="2020" x="1888" y="992" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="20" name="SpawnPoint">
-  <object id="2085" name="Sp" x="1080" y="896"/>
+  <object id="2085" name="Sp" x="1101.33" y="878.667"/>
  </objectgroup>
  <objectgroup id="22" name="M_SpawnPoint">
   <object id="2056" name="Bat_Sp" x="1278" y="196">

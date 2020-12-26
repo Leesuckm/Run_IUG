@@ -151,7 +151,7 @@ void CharactorCreator::CreateCameraSprite(b2World* _world) {
 
 	EffectSprite* CameraSp = EffectSprite::create("Images/Camera.png");
 	CameraSp->setScale(0.3f);
-	CameraSp->setVisible(true);
+	CameraSp->setVisible(false);
 	m_MyCameraDef.type = b2_dynamicBody;
 
 	m_MyCameraDef.position.Set(m_MyBodyDef.position.x, m_MyBodyDef.position.y);

@@ -70,9 +70,9 @@ void TiledBodyCreator::initCollisionMap(TMXTiledMap* map, b2World* world, _Stage
 				}
 			}
 			//if (_stage == BOSS) {
-				if (collisionGround64->getTileAt(Vec2(j, k)) != nullptr) {
-					bd[i][j].userData = collisionGround64->getTileAt(Vec2(j, k));
-				}
+			if (collisionGround64->getTileAt(Vec2(j, k)) != nullptr) {
+				bd[i][j].userData = collisionGround64->getTileAt(Vec2(j, k));
+			}
 		//	}
 			if (bd[i][j].userData != nullptr) {
 				bd[i][j].position = b2Vec2(j, i);
@@ -138,7 +138,7 @@ void TiledBodyCreator::initCollisionMap(TMXTiledMap* map, b2World* world, _Stage
 
 			switch (m_nTileGid) {
 			case 2 : // 물약
-				initBlockShape(vertices, Size(0.2, 0.3), rectshape, vindex, POTION_CATEGORY, 0x000E, 6, 1000, b2_dynamicBody, &lb_Heartlist);		
+				initBlockShape(vertices, Size(0.2, 0.3), rectshape, vindex, POTION_CATEGORY, 0x002E, 6, 1000, b2_dynamicBody, &lb_Heartlist);		
 				break;
 			case 5: // 상점 아저씨 위치
 				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, 0x0700, 0x000E, 70, 1000, b2_dynamicBody, &lb_Shopmanlist);
@@ -197,35 +197,35 @@ void TiledBodyCreator::initCollisionMap(TMXTiledMap* map, b2World* world, _Stage
 			switch (m_nTileGid) {
 			case 65:
 			case 77:    // 폭탄
-				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, 0x3000, 0x000E, 9, 1000, b2_dynamicBody, &lb_Bomblist);
+				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, 0x3000, 0x002E, 9, 1000, b2_dynamicBody, &lb_Bomblist);
 				break;
 			case 66:
 			case 78: // 사다리			
-				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, 0x7000, 0x000E, 13, 1000, b2_dynamicBody, &lb_Ladderlist);
+				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, 0x7000, 0x002E, 13, 1000, b2_dynamicBody, &lb_Ladderlist);
 				break;
 			case 67:
 			case 79:	// 곡괭이			
-				initBlockShape(vertices, Size(0.2f, 0.3f), rectshape, vindex, 0x2000, 0x000E, 7, 1000, b2_dynamicBody, &lb_Pickaxelist);
+				initBlockShape(vertices, Size(0.2f, 0.3f), rectshape, vindex, 0x2000, 0x002E, 7, 1000, b2_dynamicBody, &lb_Pickaxelist);
 				break;
 			case 68:
 			case 80:  // 검				
-				initBlockShape(vertices, Size(0.2f, 0.3f), rectshape, vindex, 0x4000, 0x000E, 11, 1000, b2_dynamicBody, &lb_Swordlist);
+				initBlockShape(vertices, Size(0.2f, 0.3f), rectshape, vindex, 0x4000, 0x002E, 11, 1000, b2_dynamicBody, &lb_Swordlist);
 				break;
 			case 69:
 			case 81:  // 권총
-				initBlockShape(vertices, Size(0.2f, 0.3f), rectshape, vindex, 0x5000, 0x000E, 12, 1000, b2_dynamicBody, &lb_Gunlist);
+				initBlockShape(vertices, Size(0.2f, 0.3f), rectshape, vindex, 0x5000, 0x002E, 12, 1000, b2_dynamicBody, &lb_Gunlist);
 				break;
 			case 70:
 			case 82:  // Red Key
-				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, REDKEY_CATEGORY, 0x000E, 90, 1000, b2_dynamicBody, &lb_RedKeylist);
+				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, REDKEY_CATEGORY, 0x002E, 90, 1000, b2_dynamicBody, &lb_RedKeylist);
 				break;			
 			case 71:
 			case 83:  // Blue Key
-				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, BLUEKEY_CATEGORY, 0x000E, 91, 1000, b2_dynamicBody, &lb_BlueKeylist);
+				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, BLUEKEY_CATEGORY, 0x002E, 91, 1000, b2_dynamicBody, &lb_BlueKeylist);
 				break;
 			case 72:
 			case 84:  // Green Key
-				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, GREENKEY_CATEGORY, 0x000E, 92, 1000, b2_dynamicBody, &lb_GreenKeylist);
+				initBlockShape(vertices, Size(0.0f, 0.0f), rectshape, vindex, GREENKEY_CATEGORY, 0x002E, 92, 1000, b2_dynamicBody, &lb_GreenKeylist);
 				break;
 			}
 
@@ -238,6 +238,7 @@ void TiledBodyCreator::initCollisionMap(TMXTiledMap* map, b2World* world, _Stage
 
 				switch (m_nTileGid) {
 				case 73:    // BLUE Treasure Chest
+				case 85:
 					vertices[0].x = position.x + 0.0f;
 					vertices[0].y = position.y + 0.0f;
 
@@ -267,6 +268,7 @@ void TiledBodyCreator::initCollisionMap(TMXTiledMap* map, b2World* world, _Stage
 					break;
 
 				case 74:    // GREEN Treasure Chest
+				case 86:
 					vertices[0].x = position.x + 0.0f;
 					vertices[0].y = position.y + 0.0f;
 
@@ -296,6 +298,7 @@ void TiledBodyCreator::initCollisionMap(TMXTiledMap* map, b2World* world, _Stage
 					break;
 
 				case 75:    // Red Treasure Chest
+				case 87:
 					vertices[0].x = position.x + 0.0f;
 					vertices[0].y = position.y + 0.0f;
 
@@ -336,12 +339,18 @@ void TiledBodyCreator::initCollisionMap(TMXTiledMap* map, b2World* world, _Stage
 				case 86:
 					break;
 				case 87:
+				case 94:
 					initBlockShape(vertices, Size(0.0f, -1.0f), rectshape, vindex, BIGBLOCK_CATEGORY, 0xFFFF, 0, 3000, b2_staticBody, nullptr);
 					break;
 				case 88:
 					initBlockShape(vertices, Size(0.0f, -1.0f), rectshape, vindex, BIGLBLOCK_CATEGORY, 0xFFFF, 0, 3000, b2_staticBody, nullptr);
 					break;
-
+				case 91:
+					initBlockShape(vertices, Size(0.0f, -1.0f), rectshape, vindex, BIGBLOCK_CATEGORY, 0xFFFF, 0, 3000, b2_staticBody, nullptr);
+					break;
+				case 92:
+					initBlockShape(vertices, Size(0.0f, -1.0f), rectshape, vindex, BIGBLOCK_CATEGORY, 0xFFFF, 0, 3000, b2_staticBody, nullptr);
+					break;
 				}
 			//}
 			//collisionBody->CreateFixture(&fix->fixture);
@@ -657,39 +666,33 @@ b2Body* TiledBodyCreator::CreateBomb(b2Vec2 position, b2World* world, Layer* lay
 		animFrames.pushBack(spritecache->getSpriteFrameByName(str));
 	}
 
-	EffectSprite* Bomb_Sprite = EffectSprite::createWithSpriteFrame(animFrames.front());
-	Animation* animation = Animation::createWithSpriteFrames(animFrames, 1.0f);
-	Animate* animate = Animate::create(animation);
-	RepeatForever* rep = RepeatForever::create(animate);
-	Bomb_Sprite->runAction(rep);
-	Bomb_Sprite->setAnchorPoint(Vec2::ZERO);
-	Bomb_Sprite->setEffect(m_LightEffect, "n_Images/item/bomb_n.png");
-	Bomb_Sprite->setColor(m_LightEffect->getAmbientLightColor());
-	layer->addChild(Bomb_Sprite, Obj_ZOrder);
+	if (m_Blind || m_stageNumber == SHELTER) {
+		EffectSprite* Bomb_Sprite = EffectSprite::createWithSpriteFrame(animFrames.front());
+		Animation* animation = Animation::createWithSpriteFrames(animFrames, 1.0f);
+		Animate* animate = Animate::create(animation);
+		RepeatForever* rep = RepeatForever::create(animate);
+		Bomb_Sprite->runAction(rep);
+		Bomb_Sprite->setAnchorPoint(Vec2::ZERO);
+		Bomb_Sprite->setEffect(m_LightEffect, "n_Images/item/bomb_n.png");
+		Bomb_Sprite->setColor(m_LightEffect->getAmbientLightColor());
+		layer->addChild(Bomb_Sprite, Obj_ZOrder);
 
-	/*
-	Texture2D* texture = Director::getInstance()->getTextureCache()->addImage("Images/Items/bomb.png");
-
-	Animation* animation = Animation::create();
-	animation->setDelayPerUnit(1.0);
-
-	for (int i = 0; i < 3; i++) {
-		animation->addSpriteFrameWithTexture(texture,
-			Rect(i * 32, 0, 32, 34));
+		bd.userData = Bomb_Sprite;
 	}
 
-	Sprite* Bomb_Sprite = Sprite::createWithTexture(texture, Rect(0, 0, 32, 34));
-	Bomb_Sprite->setAnchorPoint(Vec2(0, 0));
+	else {
+		Sprite* Bomb_Sprite = Sprite::createWithSpriteFrame(animFrames.front());
+		Animation* animation = Animation::createWithSpriteFrames(animFrames, 1.0f);
+		Animate* animate = Animate::create(animation);
+		RepeatForever* rep = RepeatForever::create(animate);
+		Bomb_Sprite->runAction(rep);
+		Bomb_Sprite->setAnchorPoint(Vec2::ZERO);
+		layer->addChild(Bomb_Sprite, Obj_ZOrder);
 
-	Animate* animate = Animate::create(animation);
-	RepeatForever* rep = RepeatForever::create(animate);
-
-	Bomb_Sprite->runAction(rep);
-
-	layer->addChild(Bomb_Sprite, 3);*/
+		bd.userData = Bomb_Sprite;
+	}
 
 	bd.position = position;
-	bd.userData = Bomb_Sprite;
 
 	bombBody = world->CreateBody(&bd);
 	bombBody->SetHp(100);
@@ -726,7 +729,7 @@ b2Body* TiledBodyCreator::CreateBomb(b2Vec2 position, b2World* world, Layer* lay
 	fix->fixture.shape = rectshape;
 	fix->fixture.isSensor = false;
 	fix->fixture.filter.categoryBits = 0x3000;
-	fix->fixture.filter.maskBits = 0x000F;
+	fix->fixture.filter.maskBits = 0x002F;
 
 	SensorFixture = bombBody->CreateFixture(&fix->fixture);
 	SensorFixture->SetUserData((void*)9);
@@ -769,28 +772,28 @@ b2Body* TiledBodyCreator::CreateObj(std::string obj_name, b2Vec2 position, b2Wor
 			body = WhatObj("n_Images/item/Gold.png", "n_Images/item/Gold_n.png", &lb_Goldlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), GOLD_CATEGORY, 0x000E, 77);
 		}
 		if (obj_name == "Potion") {
-			body = WhatObj("n_Images/item/potion.png", "n_Images/item/potion_n.png", &lb_Heartlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), POTION_CATEGORY, 0x000E, 6);
+			body = WhatObj("n_Images/item/potion.png", "n_Images/item/potion_n.png", &lb_Heartlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), POTION_CATEGORY, 0x002E, 6);
 		}
 		if (obj_name == "Bomb") {
-			body = WhatObj("n_Images/item/bomb.png", "n_Images/item/bomb_n.png", &lb_Bomblist, position, world, layer, Size(32, 32), Size(0.3, 0.3), BOMB_CATEGORY, 0x000E, 9);
+			body = WhatObj("n_Images/item/bomb.png", "n_Images/item/bomb_n.png", &lb_Bomblist, position, world, layer, Size(32, 32), Size(0.3, 0.3), BOMB_CATEGORY, 0x002E, 9);
 		}
 		if (obj_name == "Pickaxe") {
-			body = WhatObj("n_Images/item/pickaxe.png", "n_Images/item/pickaxe_n.png", &lb_Pickaxelist, position, world, layer, Size(32, 32), Size(0.3, 0.3), PICKAXE_CATEGORY, 0x000E, 7);
+			body = WhatObj("n_Images/item/pickaxe.png", "n_Images/item/pickaxe_n.png", &lb_Pickaxelist, position, world, layer, Size(32, 32), Size(0.3, 0.3), PICKAXE_CATEGORY, 0x002E, 7);
 		}
 		if (obj_name == "Sword") {
-			body = WhatObj("n_Images/item/sword.png", "n_Images/item/sword_n.png", &lb_Swordlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), SWORD_CATEGORY, 0x000E, 11);
+			body = WhatObj("n_Images/item/sword.png", "n_Images/item/sword_n.png", &lb_Swordlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), SWORD_CATEGORY, 0x002E, 11);
 		}
 		if (obj_name == "Gun") {
-			body = WhatObj("n_Images/item/gun.png", "n_Images/item/gun_n.png", &lb_Gunlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), GUN_CATEGORY, 0x000E, 12);
+			body = WhatObj("n_Images/item/gun.png", "n_Images/item/gun_n.png", &lb_Gunlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), GUN_CATEGORY, 0x002E, 12);
 		}
 		if (obj_name == "Ladder_item") {
-			body = WhatObj("n_Images/item/Ladder.png", "n_Images/item/Ladder_n.png", &lb_Ladderlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), LADDER_CATEGORY, 0x000E, 13);
+			body = WhatObj("n_Images/item/Ladder.png", "n_Images/item/Ladder_n.png", &lb_Ladderlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), LADDER_CATEGORY, 0x002E, 13);
 		}
 	}
 
 	else {
 		if (obj_name == "Ladder") {
-			body = WhatObj("n_Images/Item/longladder.png", &lb_LLadderlist, position, world, layer, Size(32, 32), Size(0.3, -0.1), LLADDER_CATEGORY, 0x000E, 13);
+			body = WhatObj("n_Images/Item/longladder.png", &lb_LLadderlist, position, world, layer, Size(32, 32), Size(0.3, -0.1), LLADDER_CATEGORY, 0x002E, 13);
 			// 사다리는 사다리 몸체 body와 더 올라가는것을 물리적으로 막아주는 상한선 body가 붙어 쌍으로 생성된다.
 			b2Body* Roofbody;
 			b2BodyDef bodydef;
@@ -817,25 +820,28 @@ b2Body* TiledBodyCreator::CreateObj(std::string obj_name, b2Vec2 position, b2Wor
 			m_world->CreateJoint(&weldJointDef);
 		}
 		if (obj_name == "Gold") {
-			body = WhatObj("n_Images/item/Gold.png", &lb_Goldlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), GOLD_CATEGORY, 0x000E, 77);
+			body = WhatObj("n_Images/item/Gold.png", &lb_Goldlist, position, world, layer, Size(32, 32), Size(0.4, 0.3), GOLD_CATEGORY, 0x000E, 77);
 		}
 		if (obj_name == "Potion") {
-			body = WhatObj("n_Images/item/potion.png", &lb_Heartlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), POTION_CATEGORY, 0x000E, 6);
+			body = WhatObj("n_Images/item/potion.png", &lb_Heartlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), POTION_CATEGORY, 0x002E, 6);
 		}
 		if (obj_name == "Bomb") {
-			body = WhatObj("n_Images/item/bomb.png", &lb_Bomblist, position, world, layer, Size(32, 32), Size(0.3, 0.3), BOMB_CATEGORY, 0x000E, 9);
+			body = this->CreateBomb(position, world, layer);
+		}
+		if (obj_name == "ShopBomb") {
+			body = WhatObj("n_Images/item/bomb.png", &lb_Bomblist, position, world, layer, Size(32, 32), Size(0.3, 0.3), BOMB_CATEGORY, 0x002E, 9);
 		}
 		if (obj_name == "Pickaxe") {
-			body = WhatObj("n_Images/item/pickaxe.png", &lb_Pickaxelist, position, world, layer, Size(32, 32), Size(0.3, 0.3), PICKAXE_CATEGORY, 0x000E, 7);
+			body = WhatObj("n_Images/item/pickaxe.png", &lb_Pickaxelist, position, world, layer, Size(32, 32), Size(0.3, 0.3), PICKAXE_CATEGORY, 0x002E, 7);
 		}
 		if (obj_name == "Sword") {
-			body = WhatObj("n_Images/item/sword.png", &lb_Swordlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), SWORD_CATEGORY, 0x000E, 11);
+			body = WhatObj("n_Images/item/sword.png", &lb_Swordlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), SWORD_CATEGORY, 0x002E, 11);
 		}
 		if (obj_name == "Gun") {
-			body = WhatObj("n_Images/item/gun.png", &lb_Gunlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), GUN_CATEGORY, 0x000E, 12);
+			body = WhatObj("n_Images/item/gun.png", &lb_Gunlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), GUN_CATEGORY, 0x002E, 12);
 		}
 		if (obj_name == "Ladder_item") {
-			body = WhatObj("n_Images/item/Ladder.png", &lb_Ladderlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), LADDER_CATEGORY, 0x000E, 13);
+			body = WhatObj("n_Images/item/Ladder.png", &lb_Ladderlist, position, world, layer, Size(32, 32), Size(0.3, 0.3), LADDER_CATEGORY, 0x002E, 13);
 		}
 	}
 
@@ -860,6 +866,7 @@ b2Body* TiledBodyCreator::WhatObj(std::string sPath, std::string sPath_n, std::l
 	itemBody->SetIsCh(false);
 
 	itemBody->setNewobj(true);
+
 	b2PolygonShape *rectshape = new b2PolygonShape();
 	b2Vec2 vertices[4];
 	int vindex = 4;
@@ -976,7 +983,6 @@ LightEffect* TiledBodyCreator::SpriteChange(Layer* layer, b2World* world) {
 			INT16 category = b->GetFixtureList()->GetFilterData().categoryBits;
 
 			if (category == BLOCK_CATEGORY) {
-				
 				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3 || m_stageNumber == SHELTER) {
 					std::string blockPath = "n_Images/block.png";
 					std::string blockPath_n = "n_Images/block_n.png";
@@ -987,10 +993,13 @@ LightEffect* TiledBodyCreator::SpriteChange(Layer* layer, b2World* world) {
 					std::string blockPath_n = "n_Images/block/IceBlock_n.png";
 					setEffectSprite(b, blockPath, blockPath_n, "Ground");
 				}
-
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					std::string blockPath = "n_Images/block/Rock_Block.png";
+					std::string blockPath_n = "n_Images/block/Rock_Block_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground");
+				}
 			}
 			else if(category == GBLOCK_CATEGORY){
-
 				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3 || m_stageNumber == SHELTER) {
 					std::string blockPath = "n_Images/block/gold_block_1.png";
 					std::string blockPath_n = "n_Images/block/gold_block_1_n.png";
@@ -1001,7 +1010,11 @@ LightEffect* TiledBodyCreator::SpriteChange(Layer* layer, b2World* world) {
 					std::string blockPath_n = "n_Images/block/Ice_GoldBlock_n.png";
 					setEffectSprite(b, blockPath, blockPath_n, "Ground");
 				}
-
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					std::string blockPath = "n_Images/block/Rock_GoldBlock_.png";
+					std::string blockPath_n = "n_Images/block/Rock_GoldBlock_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground");
+				}
 			}
 			else if (category == HARDBLOCK_CATEGORY) {
 				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3 || m_stageNumber == SHELTER) {
@@ -1014,7 +1027,130 @@ LightEffect* TiledBodyCreator::SpriteChange(Layer* layer, b2World* world) {
 					std::string blockPath_n = "n_Images/block/Ice_HardBlock_n.png";
 					setEffectSprite(b, blockPath, blockPath_n, "Ground");
 				}
-
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					std::string blockPath = "n_Images/block/Rock_HardBlock_.png";
+					std::string blockPath_n = "n_Images/block/Rock_HardBlock_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground");
+				}
+			}
+			else if (category == LBLOCK_CATEGORY) {
+				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3 || m_stageNumber == SHELTER) {
+					std::string blockPath = "n_Images/block/Block_Lava.png";
+					std::string blockPath_n = "n_Images/block/Block_Lava_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground");
+				}
+				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
+					std::string blockPath = "n_Images/block/Ice_Block_Lava.png";
+					std::string blockPath_n = "n_Images/block/Ice_Block_Lava_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground");
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					std::string blockPath = "n_Images/block/Rock_Block_Lava.png";
+					std::string blockPath_n = "n_Images/block/Rock_Block_Lava_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground");
+				}
+			}
+			else if (category == BRIDGE_CATEGORY) {
+				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3 || m_stageNumber == SHELTER) {
+					std::string blockPath = "n_Images/block/Bridge.png";
+					std::string blockPath_n = "n_Images/block/Bridge_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground");
+				}
+				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
+					std::string blockPath = "n_Images/block/Ice_Bridge.png";
+					std::string blockPath_n = "n_Images/block/Ice_Bridge_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground");
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					std::string blockPath = "n_Images/block/Rock_Bridge.png";
+					std::string blockPath_n = "n_Images/block/Rock_Bridge_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground");
+				}
+			}
+			else if (category == BRIDGE_CATEGORY) {
+				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3 || m_stageNumber == SHELTER) {
+					std::string blockPath = "n_Images/block/Bridge_Lava.png";
+					std::string blockPath_n = "n_Images/block/Bridge_Lava_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground");
+				}
+				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
+					std::string blockPath = "n_Images/block/Ice_Bridge_Lava.png";
+					std::string blockPath_n = "n_Images/block/Ice_Bridge_Lava_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground");
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					std::string blockPath = "n_Images/block/Rock_Bridge_Lava.png";
+					std::string blockPath_n = "n_Images/block/Rock_Bridge_Lava_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground");
+				}
+			}
+			else if (category == BIGBLOCK_CATEGORY) {
+				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3 || m_stageNumber == SHELTER) {
+					std::string blockPath = "n_Images/block/HardBlock_big.png";
+					std::string blockPath_n = "n_Images/block/HardBlock_big_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground_64");
+				}
+				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
+					std::string blockPath = "n_Images/block/Ice_Block_big.png";
+					std::string blockPath_n = "n_Images/block/Ice_Block_big_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground_64");
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					std::string blockPath = "n_Images/block/Rock_Block_big.png";
+					std::string blockPath_n = "n_Images/block/Rock_Block_big_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground_64");
+				}
+			}
+			else if (category == BIGHBLOCK_CATEGORY) {
+				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3 || m_stageNumber == SHELTER) {
+					std::string blockPath = "n_Images/block/HardBlock_big.png";
+					std::string blockPath_n = "n_Images/block/HardBlock_big_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground_64");
+				}
+				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
+					std::string blockPath = "n_Images/block/Ice_HardBlock_big.png";
+					std::string blockPath_n = "n_Images/block/Ice_HardBlock_big_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground_64");
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					std::string blockPath = "n_Images/block/Rock_HardBlock_big.png";
+					std::string blockPath_n = "n_Images/block/Rock_HardBlock_big_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground_64");
+				}
+			}
+			else if (category == LHARDBLOCK_CATEGORY) {
+				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3 || m_stageNumber == SHELTER) {
+					std::string blockPath = "n_Images/block/HardBlock_Lava_big.png";
+					std::string blockPath_n = "n_Images/block/HardBlock_Lava_big_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground_64");
+				}
+				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
+					std::string blockPath = "n_Images/block/Ice_HardBlock_Lava_big.png";
+					std::string blockPath_n = "n_Images/block/Ice_HardBlock_Lava_big_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground_64");
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					std::string blockPath = "n_Images/block/Rock_HardBlock_Lava_big.png";
+					std::string blockPath_n = "n_Images/block/Rock_HardBlock_Lava_big_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground_64");
+				}
+			}
+			else if (category == BIGLBLOCK_CATEGORY) {
+				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3 || m_stageNumber == SHELTER) {
+					std::string blockPath = "n_Images/block/Block_Lava_big.png";
+					std::string blockPath_n = "n_Images/block/Block_Lava_big_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground_64");
+				}
+				else if (m_stageNumber >= STAGE_2_1 && m_stageNumber <= STAGE_2_3) {
+					std::string blockPath = "n_Images/block/Ice_Block_Lava_big.png";
+					std::string blockPath_n = "n_Images/block/Ice_Block_Lava_big_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground_64");
+				}
+				else if (m_stageNumber >= STAGE_3_1 && m_stageNumber <= STAGE_3_3) {
+					std::string blockPath = "n_Images/block/Rock_Block_Lava_big.png";
+					std::string blockPath_n = "n_Images/block/Rock_Block_Lava_big_n.png";
+					setEffectSprite(b, blockPath, blockPath_n, "Ground_64");
+				}
 			}
 			else if (category == BLADEBLOCK_CATEGORY) {
 				if (m_stageNumber >= 0 && m_stageNumber <= STAGE_1_3 || m_stageNumber == SHELTER) {
@@ -1656,7 +1792,7 @@ void TiledBodyCreator::UserDataChange(Layer* layer, b2World* world) {
 
 void TiledBodyCreator::setEffectSprite(b2Body* body, std::string& sPath, std::string& sPath_n, std::string layertype) {
 	INT16 category = body->GetFixtureList()->GetFilterData().categoryBits;
-	if (m_Blind && category == LGUNTRAP_CATEGORY || category == RGUNTRAP_CATEGORY || category == BLADEBLOCK_CATEGORY || layertype == "Item" || layertype == "Treasure") {
+	if (m_Blind && category == LGUNTRAP_CATEGORY || category == RGUNTRAP_CATEGORY || category == BLADEBLOCK_CATEGORY || layertype == "Item" || layertype == "Treasure" || layertype == "Ground_64") {
 		EffectSprite* m_EffectSprite = EffectSprite::create(sPath);
 		m_EffectSprite->setAnchorPoint(Vec2(0, 0));
 		if (category == LGUNTRAP_CATEGORY) {
@@ -1689,6 +1825,10 @@ void TiledBodyCreator::SpriteTrade(Layer* layer, b2Body* body, EffectSprite* _Ef
 		else {
 			body->SetUserData(_EffectSprite);
 		}
+	}
+	if (layertype == "Ground_64") {
+		collisionGround64->removeChild(beforeSp, true);
+		body->SetUserData(_EffectSprite);
 	}
 	else if (layertype == "Item") {
 		collisionItem->removeChild(beforeSp, true);
@@ -1924,6 +2064,9 @@ bool TiledBodyCreator::LavaCollision(b2Body* _charactor_body, float _movetime, f
 
 	for (iter = lb_Lavalist.begin(); iter != lb_Lavalist.end(); ++iter) {
 		Sprite* Lava_Sprite = *iter;
+		if (Lava_Sprite->getPosition().x <= 0) {
+			return false;
+		}
 		Rect rect = Lava_Sprite->getBoundingBox();
 	
 		if (rect.intersectsRect(Charactor_Sprite->getBoundingBox()) && (*_delaytime -= _movetime) <= 0) {

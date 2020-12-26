@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="23" nextobjectid="2088">
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="2088">
  <tileset firstgid="1" source="BaseMap.tsx"/>
- <tileset firstgid="65" source="Items.tsx"/>
+ <tileset firstgid="77" source="Items.tsx"/>
+ <tileset firstgid="85" source="BaseMap_64.tsx"/>
  <layer id="15" name="Ground" width="60" height="32">
   <data encoding="base64" compression="zlib">
    eJzlWG2LhjAMEz8Ifjn8/7/2EE4oIUnTnQcHT2GoW5sldqsv5/Y5dv60iX2RxsYmeBccJxjKj3Fc0euwV+MenX9lzzyoV91bllOV2ymHia+bP7FHL8anuI6H4/LGep3i3PbWenZc3shLMs9te+Ob6H2Td4qjamDSnCm903X5Wz6sf7XWu7iqF32vAH8n2Gqut3LU2VUa4mK9UnHM0vWo+tyaTe0gfci7Yla9au6VnCS83dpW2KucUO+EJ/Pr8ulyN927af4Zhnr+TrHcPVVcuxwq3Kl167mLQz7JPOwafd0car+k+x7rVYLl5mexTguLUVjdnIo3G1fPow5XGT4HGJ8Jz7QGpJjueeSwdri+W9XKYtCf8au2C7+pVd1K60F8uzys1LuEYzc+WefJ+yQbS2zCScUnY2keqt6upjCMCU+sPdUO0e/udZf3eq70TtdGx6mLVZzcHJ1exMT6yfR2NVRdOw0Mq+urYwxX+aLW2q/0Mm0KGzkpvipW8VYxyI/V1uR7IVlbbv6NHFdN7eWE56OX5av7f8W+JfGb9w3dTh/OwWKVXoxT7xvTfLu90PFm5/V4DLUqvWz/buI80d6NVY64v5hedp5oVWNbo5fdM/evJNXN/j+gXtSUau3WoqtXiJ/ondy3NE7pVL6Ok3u/UlxX7q0bT97VJ3jOf/I8+m9tg2PSzg9s3w5cMuQ=
@@ -9,7 +10,12 @@
  </layer>
  <layer id="21" name="Item" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt2DEOgCAQBVGuJihy/xPRUhGRuH83zqspJoHAhpQAWLnUAQiN8xNXUQcEktUBeO1QB0xwroA53ikAgDXPsyP2jHt7ihq8zf9VHYAlbWGt97uMv0R/nuzJ/XkF/qIDLGYEfg==
+   eJzt2DEOgCAQBVEuKChy/7PQUhGRuH83zqspJoHAhpQAWLnUAQiN8xNXUQcEktUBeO1QB0xwroA53ikAgDXPsyP2jHt7ihq8zf9VHYAlbWGt97uMv0R/nuzJ/XkF/qID0t0FSg==
+  </data>
+ </layer>
+ <layer id="23" name="Ground_64" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztzgEJAAAMA6D1fP8ejzEYmsAEtlw7AAAAAAAAACUPxysAXA==
   </data>
  </layer>
  <objectgroup id="16" name="Collision" visible="0">

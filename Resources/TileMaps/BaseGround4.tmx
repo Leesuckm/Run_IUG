@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="23" nextobjectid="2082">
+<map version="1.2" tiledversion="1.2.5" orientation="orthogonal" renderorder="right-up" width="60" height="32" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="2082">
  <tileset firstgid="1" source="BaseMap.tsx"/>
- <tileset firstgid="65" source="Items.tsx"/>
+ <tileset firstgid="77" source="Items.tsx"/>
+ <tileset firstgid="85" source="BaseMap_64.tsx"/>
  <layer id="15" name="Ground" width="60" height="32">
   <data encoding="base64" compression="zlib">
    eJzlWNFqwzAQC4UF+lLyCfv/rxwZNXiqpNM53VMNpknqO0s62W183z6n3Z/9sW3f2F0cGz9iWCzmVPGr/QhzDr4JnzPnQbDj+ETnFV3x+bg+pl5p3eHLOLs6VxzcGIenE7fDPeNb5Z15K/4Or8vf0Q3ifvtNzIV+ftf6VXluOe7YN0+O+Mxin+u74heH1+EnuG2ear4UH/JNYhDfP/u0XFud3F2+jqer5ZX9Kd0XEkyKL5vDrcGkrrjHpdzUfWetj1btV0q7iq/LhXzVePY946A0cnxVTqezwuPqofBVnDvr2I3H318z34tmO4lZ9Vq6/pwe8ydeI9/KyyzXCqZknVacVjU+u/p/pT47nFBbhZmNUVqwnGfD/1Vsvm3z/ycPEpPWrPLtDvdu7NmSPc7p7/iOcexdqPJjqkNXI8TTWS/Mz+w79y5EJIq8iuMSDdFvrjFPpPXFOZT3cJ9mYyp+ql7jk/nZNfVO7PZnxiH1k8OS8GU+eyffBIvyuotV3+HzVJOEa7J+cby6R71VjQkGic3hxTFfIo+aB/Ek5xtpzdH3EF/yTdaJqzWe3YzY+T2ne35V4VzxH8vheHT0x5zd85xkfaYcVWyiZaWRyqPqm+KrMFT8H3+vO3FUb3U/2uCL7/JuvhUfJdjTuEpfl2f1fLLLn8TYeq6u0SpPx8+o6RX+c0/P8BO/Vs3x7XqU/R4k/N25PeNYPXc4nZ8Vr6s+u1LfqzgH30/qP08onMg=
@@ -9,7 +10,12 @@
  </layer>
  <layer id="21" name="Item" width="60" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt1+sNwCAIRlFX69PuP1EnaFIqAT57z28NxIhga8C8juwEhHF2/pbsBODKUiOrYS33BPhmC45Hn8QfWPpXZT07AZRyDu6vPqvRn+LM8kYCikbqb3fLAuoUeuabf2712QT+rsBYCnWCZzex9wWP
+   eJzt1+sNwCAIRlEX7NPuP0snaFIqAT57z28NxIhga8C8juwEhHF2/pbsBODKUiOrYS33BPhmC45Hn8QfWPpXZT07AZRyDu6vPqvRn+LM8kYCikbqb3fLAuoUeuabf2712QT+rsBYCnWCZzd6aQaL
+  </data>
+ </layer>
+ <layer id="23" name="Ground_64" width="60" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztzgENAAAIA6D3tH8PY1w3SEACfDbtAAAAAAAAAGcscdsAXA==
   </data>
  </layer>
  <objectgroup id="16" name="Collision" visible="0">
