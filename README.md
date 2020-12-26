@@ -26,6 +26,7 @@ Attack : Button
 Interaction: Button
 
 Vidio : https://www.youtube.com/watch?v=42nH7ynDoIM // youtube link
+
 Blog  : https://blog.naver.com/aks0309/222185692695 // blog link
 
 My blog contains a description of the code used to develop the game or a description of the process.
