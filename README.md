@@ -28,6 +28,11 @@ Interaction: Button
 Vidio : https://www.youtube.com/watch?v=42nH7ynDoIM // youtube link
 Blog  : https://blog.naver.com/aks0309/222185692695 // blog link
 
+My blog contains a description of the code used to develop the game or a description of the process.
+
 almost pixel sprite & sound is selfmade or selffixed free pixel sprite, sound T - T
 
 I Try high quality pay pixel sprite.
+
+/////////////////////////////////////////////
+Added 3F, Shelter Floor, 4 Boss Pattern, +1 Obstacle
